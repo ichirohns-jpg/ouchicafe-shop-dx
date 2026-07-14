@@ -7,512 +7,524 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>管理者画面｜おうちcafeパン工房</title>
   <link rel="icon" href="icon.jpg">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4b2619">
 
   <style>
     :root {
-      --brown:#4b2619;
-      --brown-dark:#32180f;
-      --brown-light:#76513d;
-      --cream:#fffaf1;
-      --line:#eadfd2;
-      --green:#667253;
-      --blue:#286a94;
-      --red:#a34b3b;
-      --gold:#b97624;
-      --gray:#74695f;
-      --white:#fff;
+      --brown: #4b2619;
+      --brown-dark: #32180f;
+      --brown-light: #76513d;
+      --cream: #fffaf1;
+      --paper: #fffdf8;
+      --line: #eadfd2;
+      --green: #667253;
+      --green-dark: #4e5d3d;
+      --blue: #286a94;
+      --red: #a34b3b;
+      --gold: #b97624;
+      --gray: #74695f;
+      --white: #fff;
+      --shadow: 0 10px 28px rgba(73, 42, 24, .10);
     }
 
-    *{box-sizing:border-box}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-    body{
-      margin:0;
-      color:var(--brown-dark);
-      background:radial-gradient(circle at top,#fffdf8 0,var(--cream) 48%,#f1e3d3 100%);
-      font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
-      font-size:18px;
-      line-height:1.7;
+    body {
+      margin: 0;
+      color: var(--brown-dark);
+      background: radial-gradient(circle at top,#fffdf8 0,var(--cream) 48%,#f1e3d3 100%);
+      font-family: "Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+      -webkit-text-size-adjust: 100%;
     }
 
-    button,input,textarea,select{font:inherit}
-    button{cursor:pointer}
-    img{display:block;max-width:100%}
-    a{color:inherit}
+    button,input,textarea,select { font: inherit; }
+    button { cursor: pointer; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
 
-    .page{
-      width:min(100%,860px);
-      min-height:100vh;
-      margin:auto;
-      background:rgba(255,253,248,.97);
-      box-shadow:0 0 32px rgba(56,27,11,.12);
+    .page {
+      width: min(100%,860px);
+      min-height: 100vh;
+      margin: 0 auto;
+      background: rgba(255,253,248,.97);
+      box-shadow: 0 0 32px rgba(56,27,11,.12);
     }
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      padding:calc(10px + env(safe-area-inset-top)) 16px 10px;
-      color:#fff;
-      background:rgba(75,38,25,.98);
-      border-bottom:3px solid #d7a84b;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: calc(10px + env(safe-area-inset-top)) 16px 10px;
+      color: #fff;
+      background: rgba(75,38,25,.98);
+      border-bottom: 3px solid #d7a84b;
+      backdrop-filter: blur(10px);
     }
 
-    .header-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
 
-    .brand{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      color:#fff;
-      text-decoration:none;
-      font-weight:900;
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
     }
 
-    .brand img{
-      width:48px;
-      height:48px;
-      object-fit:cover;
-      border-radius:50%;
-      border:2px solid #f4d27a;
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #f4d27a;
     }
 
-    .brand span{
-      font-size:clamp(15px,3vw,22px);
-      line-height:1.25;
+    .brand span {
+      font-size: clamp(15px,3vw,22px);
+      line-height: 1.25;
     }
 
-    .back-link{
-      padding:8px 12px;
-      color:var(--brown-dark);
-      background:#ffe6a6;
-      border-radius:12px;
-      text-decoration:none;
-      font-size:14px;
-      font-weight:800;
-      white-space:nowrap;
+    .back-link {
+      padding: 8px 12px;
+      color: var(--brown-dark);
+      background: #ffe6a6;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      white-space: nowrap;
     }
 
-    main{padding:18px 16px 72px}
+    main { padding: 18px 16px 72px; }
 
-    .card{
-      margin-bottom:20px;
-      padding:clamp(18px,4vw,30px);
-      background:var(--white);
-      border:1px solid var(--line);
-      border-radius:20px;
-      box-shadow:0 10px 28px rgba(73,42,24,.1);
+    .card {
+      margin: 0 0 20px;
+      padding: clamp(18px,4vw,30px);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
     }
 
-    .login-card{
-      max-width:600px;
-      margin:28px auto 20px;
+    .login-card {
+      max-width: 600px;
+      margin: 28px auto 20px;
     }
 
-    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3,p { margin-top: 0; }
 
-    .page-title{
-      margin-bottom:8px;
-      color:var(--brown);
-      font-size:clamp(28px,6vw,44px);
-      line-height:1.3;
+    .page-title {
+      margin-bottom: 8px;
+      color: var(--brown);
+      font-size: clamp(28px,6vw,44px);
+      line-height: 1.3;
     }
 
-    .lead,.help{color:var(--gray)}
-    .lead{margin-bottom:24px}
-    .help{margin:7px 0 0;font-size:13px}
+    .lead,.help { color: var(--gray); }
+    .lead { margin-bottom: 24px; }
+    .help { margin: 7px 0 0; font-size: 13px; }
 
-    .field{margin-bottom:20px}
-    .label{
-      display:block;
-      margin-bottom:8px;
-      color:var(--brown);
-      font-weight:900;
+    .field { margin-bottom: 20px; }
+
+    .label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--brown);
+      font-weight: 900;
     }
 
-    .required,.optional{
-      display:inline-block;
-      margin-left:6px;
-      padding:1px 8px;
-      border-radius:999px;
-      font-size:11px;
-      vertical-align:middle;
+    .required,.optional {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      vertical-align: middle;
     }
 
-    .required{color:#fff;background:var(--red)}
-    .optional{color:var(--gray);background:#eee4d7}
+    .required { color: #fff; background: var(--red); }
+    .optional { color: var(--gray); background: #eee4d7; }
 
     input[type="text"],
     input[type="password"],
     input[type="url"],
     input[type="date"],
     textarea,
-    select{
-      width:100%;
-      min-height:56px;
-      padding:12px 14px;
-      color:var(--brown-dark);
-      background:#fffdf9;
-      border:2px solid #d9c9bb;
-      border-radius:12px;
-      outline:none;
+    select {
+      width: 100%;
+      min-height: 56px;
+      padding: 12px 14px;
+      color: var(--brown-dark);
+      background: #fffdf9;
+      border: 2px solid #d9c9bb;
+      border-radius: 12px;
+      outline: none;
     }
 
-    textarea{
-      min-height:145px;
-      resize:vertical;
-      line-height:1.75;
+    textarea {
+      min-height: 145px;
+      resize: vertical;
+      line-height: 1.75;
     }
 
     input:focus,
     textarea:focus,
-    select:focus{
-      border-color:var(--green);
-      box-shadow:0 0 0 4px rgba(102,114,83,.13);
+    select:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 4px rgba(102,114,83,.13);
     }
 
     .primary-button,
-    .button{
-      min-height:56px;
-      padding:12px 18px;
-      color:#fff;
-      background:var(--brown);
-      border:0;
-      border-radius:999px;
-      font-weight:900;
+    .button {
+      min-height: 56px;
+      padding: 12px 18px;
+      color: #fff;
+      background: var(--brown);
+      border: 0;
+      border-radius: 999px;
+      font-weight: 900;
     }
 
-    .primary-button{width:100%}
-    .button.green{background:var(--green)}
-    .button.red{background:var(--red)}
-    .button.light{
-      color:var(--brown);
-      background:#fff;
-      border:1px solid var(--line);
+    .primary-button { width: 100%; }
+    .button.green { background: var(--green); }
+    .button.red { background: var(--red); }
+
+    .button.light {
+      color: var(--brown);
+      background: #fff;
+      border: 1px solid var(--line);
     }
 
     .primary-button:disabled,
-    .button:disabled{
-      cursor:wait;
-      opacity:.55;
+    .button:disabled {
+      cursor: wait;
+      opacity: .55;
     }
 
-    .status-message{
-      display:none;
-      margin-bottom:18px;
-      padding:13px 15px;
-      border-radius:12px;
-      white-space:pre-wrap;
+    .status-message {
+      display: none;
+      margin: 0 0 18px;
+      padding: 13px 15px;
+      border-radius: 12px;
+      white-space: pre-wrap;
     }
 
-    .status-message.show{display:block}
-    .status-message.info{color:#365b70;background:#e8f2f7}
-    .status-message.success{color:#285b36;background:#e5f4e7}
-    .status-message.error{color:#842f27;background:#fbe8e5}
+    .status-message.show { display: block; }
+    .status-message.info { color: #365b70; background: #e8f2f7; }
+    .status-message.success { color: #285b36; background: #e5f4e7; }
+    .status-message.error { color: #842f27; background: #fbe8e5; }
 
-    .admin-panel{display:none}
-    .admin-panel.show{display:block}
+    .admin-panel { display: none; }
+    .admin-panel.show { display: block; }
 
-    .toolbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:18px;
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
     }
 
-    .toolbar h2{
-      margin:0;
-      font-size:clamp(24px,5vw,34px);
+    .toolbar h2 {
+      margin: 0;
+      font-size: clamp(24px,5vw,34px);
     }
 
-    .toolbar-buttons{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
+    .toolbar-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
-    .toolbar-buttons .button{
-      min-height:46px;
-      padding:8px 14px;
-      font-size:15px;
+    .toolbar-buttons .button {
+      min-height: 46px;
+      padding: 8px 14px;
+      font-size: 15px;
     }
 
-    .tabs{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:8px;
-      margin-bottom:18px;
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 8px;
+      margin-bottom: 18px;
     }
 
     .tab-button,
-    .filter-button{
-      min-height:52px;
-      padding:10px 12px;
-      color:var(--brown-light);
-      background:#fffdf9;
-      border:1px solid var(--line);
-      border-radius:12px;
-      font-weight:900;
+    .filter-button {
+      min-height: 52px;
+      padding: 10px 12px;
+      color: var(--brown-light);
+      background: #fffdf9;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-weight: 900;
     }
 
     .tab-button.active,
-    .filter-button.active{
-      color:#fff;
-      background:var(--brown);
-      border-color:var(--brown);
+    .filter-button.active {
+      color: #fff;
+      background: var(--brown);
+      border-color: var(--brown);
     }
 
-    .panel{display:none}
-    .panel.active{display:block}
+    .panel { display: none; }
+    .panel.active { display: block; }
 
-    .filter-row{
-      display:flex;
-      gap:8px;
-      overflow-x:auto;
-      margin-bottom:18px;
-      padding-bottom:3px;
+    .filter-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin: 0 0 18px;
+      padding-bottom: 3px;
     }
 
-    .filter-button{
-      flex:0 0 auto;
-      min-height:44px;
-      padding:7px 13px;
-      font-size:14px;
+    .filter-button {
+      flex: 0 0 auto;
+      min-height: 44px;
+      padding: 7px 13px;
+      font-size: 14px;
     }
 
-    .count-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:8px;
-      margin-bottom:18px;
+    .count-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 8px;
+      margin-bottom: 18px;
     }
 
-    .count-box{
-      padding:12px 8px;
-      text-align:center;
-      background:#fffdf9;
-      border:1px solid var(--line);
-      border-radius:13px;
+    .count-box {
+      padding: 12px 8px;
+      text-align: center;
+      background: #fffdf9;
+      border: 1px solid var(--line);
+      border-radius: 13px;
     }
 
-    .count-box strong{
-      display:block;
-      font-size:28px;
-      line-height:1.15;
+    .count-box strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1.15;
     }
 
-    .count-box span{
-      color:var(--gray);
-      font-size:12px;
+    .count-box span {
+      color: var(--gray);
+      font-size: 12px;
     }
 
-    .count-box.pending strong{color:var(--gold)}
-    .count-box.public strong{color:var(--green)}
-    .count-box.hidden strong{color:var(--red)}
+    .count-box.pending strong { color: var(--gold); }
+    .count-box.public strong { color: var(--green); }
+    .count-box.hidden strong { color: var(--red); }
 
-    .list{
-      display:grid;
-      gap:16px;
+    .list {
+      display: grid;
+      gap: 16px;
     }
 
-    .item-card{
-      padding:18px;
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:17px;
-      box-shadow:0 6px 18px rgba(73,42,24,.07);
+    .item-card {
+      padding: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      box-shadow: 0 6px 18px rgba(73,42,24,.07);
     }
 
-    .item-head{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:12px;
+    .item-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
     }
 
     .item-id,
-    .item-date{
-      margin:0;
-      color:var(--gray);
-      font-size:13px;
+    .item-date {
+      margin: 0;
+      color: var(--gray);
+      font-size: 13px;
     }
 
-    .item-title{
-      margin:0 0 5px;
-      font-size:24px;
-      line-height:1.35;
+    .item-title {
+      margin: 0 0 5px;
+      font-size: 24px;
+      line-height: 1.35;
     }
 
-    .item-text{
-      white-space:pre-wrap;
-      word-break:break-word;
+    .item-text {
+      white-space: pre-wrap;
+      word-break: break-word;
     }
 
-    .menu-name{
-      margin:0 0 8px;
-      color:var(--brown-light);
-      font-size:15px;
+    .menu-name {
+      margin: 0 0 8px;
+      color: var(--brown-light);
+      font-size: 15px;
     }
 
-    .stars{
-      margin:0 0 8px;
-      color:var(--gold);
-      letter-spacing:.08em;
+    .stars {
+      margin: 0 0 8px;
+      color: var(--gold);
+      letter-spacing: .08em;
     }
 
-    .status-badge{
-      flex:0 0 auto;
-      padding:4px 10px;
-      border-radius:999px;
-      color:#fff;
-      font-size:13px;
-      font-weight:900;
+    .status-badge {
+      flex: 0 0 auto;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
     }
 
-    .status-badge.pending{background:var(--gold)}
-    .status-badge.public{background:var(--green)}
-    .status-badge.hidden{background:var(--red)}
-    .status-badge.draft{background:var(--gray)}
+    .status-badge.pending { background: var(--gold); }
+    .status-badge.public { background: var(--green); }
+    .status-badge.hidden { background: var(--red); }
+    .status-badge.draft { background: var(--gray); }
 
-    .photo-row{
-      display:flex;
-      gap:10px;
-      overflow-x:auto;
-      margin:14px 0;
-      padding:2px 2px 8px;
+    .photo-row {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin: 14px 0;
+      padding: 2px 2px 8px;
     }
 
-    .photo-box{
-      position:relative;
-      flex:0 0 126px;
-      height:126px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      border-radius:11px;
-      background:#f5eee5;
+    .photo-box {
+      position: relative;
+      flex: 0 0 126px;
+      height: 126px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: #f5eee5;
     }
 
-    .photo-box img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    a.photo-box{display:block}
+    a.photo-box { display: block; }
 
-    .remove-photo{
-      position:absolute;
-      top:5px;
-      right:5px;
-      width:30px;
-      height:30px;
-      padding:0;
-      color:#fff;
-      background:rgba(75,38,25,.88);
-      border:0;
-      border-radius:50%;
-      font-size:22px;
-      line-height:30px;
+    .remove-photo {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      color: #fff;
+      background: rgba(75,38,25,.88);
+      border: 0;
+      border-radius: 50%;
+      font-size: 22px;
+      line-height: 30px;
     }
 
-    .notes-input{min-height:90px}
+    .notes-input { min-height: 90px; }
 
-    .action-row{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:8px;
-      margin-top:14px;
+    .action-row {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 8px;
+      margin-top: 14px;
     }
 
-    .action-button{
-      min-height:50px;
-      padding:8px 10px;
-      color:#fff;
-      border:0;
-      border-radius:11px;
-      font-weight:900;
-      font-size:15px;
+    .action-button {
+      min-height: 50px;
+      padding: 8px 10px;
+      color: #fff;
+      border: 0;
+      border-radius: 11px;
+      font-weight: 900;
+      font-size: 15px;
     }
 
-    .action-button.publish{background:var(--green)}
-    .action-button.pending{
-      color:var(--brown-dark);
-      background:#f0c36b;
+    .action-button.publish { background: var(--green); }
+
+    .action-button.pending {
+      color: var(--brown-dark);
+      background: #f0c36b;
     }
 
-    .action-button.hide{background:var(--red)}
-    .action-button.save{
-      color:var(--brown-dark);
-      background:#eadfd2;
+    .action-button.hide { background: var(--red); }
+
+    .action-button.save {
+      color: var(--brown-dark);
+      background: #eadfd2;
     }
 
-    .action-button:disabled{
-      cursor:wait;
-      opacity:.55;
+    .action-button:disabled {
+      cursor: wait;
+      opacity: .55;
     }
 
-    .news-form{margin-bottom:24px}
-    .news-form h3{font-size:24px}
+    .news-form { margin-bottom: 24px; }
+    .news-form h3 { margin-bottom: 16px; font-size: 24px; }
 
-    .form-actions{
-      display:flex;
-      gap:9px;
-      flex-wrap:wrap;
-      margin-top:20px;
+    .form-actions {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-top: 20px;
     }
 
-    .form-actions .button{
-      flex:1 1 180px;
+    .form-actions .button {
+      flex: 1 1 180px;
     }
 
-    .news-links{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin:10px 0;
+    .news-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 10px 0;
     }
 
-    .news-links a{
-      color:var(--blue);
-      font-size:14px;
-      word-break:break-all;
+    .news-links a {
+      color: var(--blue);
+      font-size: 14px;
+      word-break: break-all;
     }
 
-    .empty-box{
-      padding:28px 16px;
-      color:var(--gray);
-      text-align:center;
-      background:#fffdf9;
-      border:1px dashed #d8c6b5;
-      border-radius:14px;
+    .empty-box {
+      padding: 28px 16px;
+      color: var(--gray);
+      text-align: center;
+      background: #fffdf9;
+      border: 1px dashed #d8c6b5;
+      border-radius: 14px;
     }
 
-    footer{
-      padding:22px 16px 40px;
-      color:var(--gray);
-      text-align:center;
-      font-size:13px;
+    footer {
+      padding: 22px 16px 40px;
+      color: var(--gray);
+      text-align: center;
+      font-size: 13px;
     }
 
-    @media(max-width:560px){
-      body{font-size:16px}
-      main{padding-inline:10px}
-      header{padding-inline:10px}
-      .brand span{font-size:15px}
-      .back-link{padding:7px 9px;font-size:12px}
-      .card{padding:16px 13px}
-      .item-card{padding:14px}
-      .item-title{font-size:21px}
-      .photo-box{
-        flex-basis:112px;
-        height:112px;
+    @media (max-width:560px) {
+      body { font-size: 16px; }
+      main { padding-inline: 10px; }
+      header { padding-inline: 10px; }
+      .brand span { font-size: 15px; }
+      .back-link { padding: 7px 9px; font-size: 12px; }
+      .card { padding: 16px 13px; }
+      .item-card { padding: 14px; }
+      .item-title { font-size: 21px; }
+      .photo-box {
+        flex-basis: 112px;
+        height: 112px;
       }
     }
   </style>
@@ -527,14 +539,19 @@
           <span>おうちcafeパン工房<br>管理者画面</span>
         </a>
 
-        <a class="back-link" href="index.html">公開ページ</a>
+        <a class="back-link" href="index.html">
+          公開ページ
+        </a>
       </div>
     </header>
 
     <main>
       <section class="card login-card" id="loginCard">
         <h1 class="page-title">管理者ログイン</h1>
-        <p class="lead">お客様の声とお知らせを管理します。</p>
+
+        <p class="lead">
+          お客様の声とお知らせを管理します。
+        </p>
 
         <div class="status-message" id="loginStatus"></div>
 
@@ -830,29 +847,63 @@
     let existingNewsImages = [];
     let newNewsFiles = [];
 
-    const $ = function(id){
-      return document.getElementById(id);
-    };
+    const $ = (id) =>
+      document.getElementById(id);
 
-    const loginCard = $("loginCard");
-    const loginForm = $("loginForm");
-    const passwordInput = $("adminPassword");
-    const loginButton = $("loginButton");
-    const loginStatus = $("loginStatus");
-    const adminPanel = $("adminPanel");
-    const adminStatus = $("adminStatus");
-    const postList = $("postList");
-    const newsList = $("newsList");
-    const refreshButton = $("refreshButton");
-    const logoutButton = $("logoutButton");
-    const newsForm = $("newsForm");
-    const newsPhotoInput = $("newsPhotoInput");
-    const newsPhotoPreview = $("newsPhotoPreview");
-    const newsPhotoCount = $("newsPhotoCount");
-    const newsSaveButton = $("newsSaveButton");
+    const loginCard =
+      $("loginCard");
 
-    if(adminPassword){
-      passwordInput.value = adminPassword;
+    const loginForm =
+      $("loginForm");
+
+    const passwordInput =
+      $("adminPassword");
+
+    const loginButton =
+      $("loginButton");
+
+    const loginStatus =
+      $("loginStatus");
+
+    const adminPanel =
+      $("adminPanel");
+
+    const adminStatus =
+      $("adminStatus");
+
+    const postList =
+      $("postList");
+
+    const newsList =
+      $("newsList");
+
+    const refreshButton =
+      $("refreshButton");
+
+    const logoutButton =
+      $("logoutButton");
+
+    const newsForm =
+      $("newsForm");
+
+    const newsPhotoInput =
+      $("newsPhotoInput");
+
+    const newsPhotoPreview =
+      $("newsPhotoPreview");
+
+    const newsPhotoCount =
+      $("newsPhotoCount");
+
+    const newsSaveButton =
+      $("newsSaveButton");
+
+    const newsCancelButton =
+      $("newsCancelButton");
+
+    if (adminPassword) {
+      passwordInput.value =
+        adminPassword;
     }
 
     setToday();
@@ -865,9 +916,7 @@
 
     refreshButton.addEventListener(
       "click",
-      function(){
-        loadAllData(false);
-      }
+      () => loadAllData(false)
     );
 
     logoutButton.addEventListener(
@@ -880,12 +929,10 @@
       handleNewsSave
     );
 
-    document
-      .getElementById("newsCancelButton")
-      .addEventListener(
-        "click",
-        resetNewsForm
-      );
+    newsCancelButton.addEventListener(
+      "click",
+      resetNewsForm
+    );
 
     newsPhotoInput.addEventListener(
       "change",
@@ -909,13 +956,13 @@
 
     document
       .querySelectorAll(".tab-button")
-      .forEach(function(button){
+      .forEach((button) => {
         button.addEventListener(
           "click",
-          function(){
+          () => {
             document
               .querySelectorAll(".tab-button")
-              .forEach(function(item){
+              .forEach((item) => {
                 item.classList.toggle(
                   "active",
                   item === button
@@ -941,15 +988,16 @@
 
     document
       .querySelectorAll(".filter-button")
-      .forEach(function(button){
+      .forEach((button) => {
         button.addEventListener(
           "click",
-          function(){
-            currentFilter = button.dataset.filter;
+          () => {
+            currentFilter =
+              button.dataset.filter;
 
             document
               .querySelectorAll(".filter-button")
-              .forEach(function(item){
+              .forEach((item) => {
                 item.classList.toggle(
                   "active",
                   item === button
@@ -961,13 +1009,13 @@
         );
       });
 
-    async function handleLogin(event){
+    async function handleLogin(event) {
       event.preventDefault();
 
       const password =
         passwordInput.value.trim();
 
-      if(!password){
+      if (!password) {
         showMessage(
           loginStatus,
           "管理者パスワードを入力してください。",
@@ -981,7 +1029,7 @@
       await loadAllData(true);
     }
 
-    async function loadAllData(isLogin){
+    async function loadAllData(isLogin) {
       setLoading(true);
 
       showMessage(
@@ -992,17 +1040,17 @@
         "info"
       );
 
-      try{
+      try {
         const results =
           await Promise.all([
             apiRequest({
-              mode:"adminList",
-              adminPassword:adminPassword
+              mode: "adminList",
+              adminPassword
             }),
 
             apiRequest({
-              mode:"adminNewsList",
-              adminPassword:adminPassword
+              mode: "adminNewsList",
+              adminPassword
             })
           ]);
 
@@ -1021,8 +1069,12 @@
           adminPassword
         );
 
-        loginCard.style.display = "none";
-        adminPanel.classList.add("show");
+        loginCard.style.display =
+          "none";
+
+        adminPanel.classList.add(
+          "show"
+        );
 
         clearMessage(loginStatus);
 
@@ -1036,7 +1088,7 @@
         renderPosts();
         renderNews();
 
-      }catch(error){
+      } catch (error) {
         showMessage(
           isLogin
             ? loginStatus
@@ -1045,27 +1097,27 @@
           "error"
         );
 
-      }finally{
+      } finally {
         setLoading(false);
       }
     }
 
-    async function apiRequest(data){
+    async function apiRequest(data) {
       const response =
         await fetch(
           GAS_URL,
           {
-            method:"POST",
-            headers:{
+            method: "POST",
+            headers: {
               "Content-Type":
                 "text/plain;charset=utf-8"
             },
-            body:JSON.stringify(data),
-            redirect:"follow"
+            body: JSON.stringify(data),
+            redirect: "follow"
           }
         );
 
-      if(!response.ok){
+      if (!response.ok) {
         throw new Error(
           "通信エラーが発生しました。"
         );
@@ -1076,20 +1128,20 @@
 
       let result;
 
-      try{
+      try {
         result =
           JSON.parse(responseText);
 
-      }catch(error){
+      } catch (error) {
         throw new Error(
           "サーバーから正しい返答を受け取れませんでした。"
         );
       }
 
-      if(
+      if (
         !result ||
         result.success !== true
-      ){
+      ) {
         throw new Error(
           result &&
           result.message
@@ -1101,27 +1153,27 @@
       return result;
     }
 
-    function normalizePost(item){
+    function normalizePost(item) {
       return {
-        id:String(
+        id: String(
           item.id ||
           item.postId ||
           ""
         ),
 
-        date:String(
+        date: String(
           item.date ||
           item.postDate ||
           ""
         ),
 
-        nickname:String(
+        nickname: String(
           item.nickname ||
           item.name ||
           "名前なし"
         ),
 
-        rating:Math.max(
+        rating: Math.max(
           0,
           Math.min(
             5,
@@ -1129,33 +1181,33 @@
           )
         ),
 
-        menuName:String(
+        menuName: String(
           item.menuName ||
           item.productName ||
           ""
         ),
 
-        comment:String(
+        comment: String(
           item.comment ||
           ""
         ),
 
-        images:normalizeImages(
+        images: normalizeImages(
           item.images ||
           item.photos
         ),
 
-        status:normalizePostStatus(
+        status: normalizePostStatus(
           item.status ||
           item.publicStatus
         ),
 
-        approvedAt:String(
+        approvedAt: String(
           item.approvedAt ||
           ""
         ),
 
-        notes:String(
+        notes: String(
           item.notes ||
           item.memo ||
           ""
@@ -1163,113 +1215,113 @@
       };
     }
 
-    function normalizeNews(item){
+    function normalizeNews(item) {
       return {
-        id:String(
+        id: String(
           item.id ||
           item.newsId ||
           ""
         ),
 
-        date:String(
+        date: String(
           item.date ||
           item.postDate ||
           ""
         ),
 
-        title:String(
+        title: String(
           item.title ||
           ""
         ),
 
-        body:String(
+        body: String(
           item.body ||
           ""
         ),
 
-        images:normalizeImages(
+        images: normalizeImages(
           item.images
         ),
 
-        videoUrl:safeUrl(
+        videoUrl: safeUrl(
           item.videoUrl ||
           item.youtubeUrl
         ),
 
-        externalUrl:safeUrl(
+        externalUrl: safeUrl(
           item.externalUrl ||
           item.link
         ),
 
-        status:normalizeNewsStatus(
+        status: normalizeNewsStatus(
           item.status ||
           item.publicStatus
         ),
 
-        createdAt:String(
+        createdAt: String(
           item.createdAt ||
           ""
         ),
 
-        updatedAt:String(
+        updatedAt: String(
           item.updatedAt ||
           ""
         )
       };
     }
 
-    function normalizeImages(value){
-      if(Array.isArray(value)){
+    function normalizeImages(value) {
+      if (Array.isArray(value)) {
         return value
-          .map(function(item){
-            return safeUrl(item);
-          })
+          .map((item) => safeUrl(item))
           .filter(Boolean)
-          .slice(0,MAX_PHOTOS);
+          .slice(0, MAX_PHOTOS);
       }
 
-      if(
+      if (
         typeof value === "string" &&
         value.trim()
-      ){
+      ) {
         return value
           .split(/\s*,\s*/)
-          .map(function(item){
-            return safeUrl(item);
-          })
+          .map((item) => safeUrl(item))
           .filter(Boolean)
-          .slice(0,MAX_PHOTOS);
+          .slice(0, MAX_PHOTOS);
       }
 
       return [];
     }
 
-    function updateCounts(){
+    function updateCounts() {
       $("pendingCount").textContent =
-        posts.filter(function(post){
-          return post.status === "確認待ち";
-        }).length;
+        posts.filter(
+          (post) =>
+            post.status === "確認待ち"
+        ).length;
 
       $("publicCount").textContent =
-        posts.filter(function(post){
-          return post.status === "公開";
-        }).length;
+        posts.filter(
+          (post) =>
+            post.status === "公開"
+        ).length;
 
       $("hiddenCount").textContent =
-        posts.filter(function(post){
-          return post.status === "非公開";
-        }).length;
+        posts.filter(
+          (post) =>
+            post.status === "非公開"
+        ).length;
     }
 
-    function renderPosts(){
+    function renderPosts() {
       const filtered =
         currentFilter === "すべて"
           ? posts
-          : posts.filter(function(post){
-              return post.status === currentFilter;
-            });
+          : posts.filter(
+              (post) =>
+                post.status === currentFilter
+            );
 
-      if(!filtered.length){
+      if (!filtered.length) {
         postList.innerHTML =
           '<div class="empty-box">該当する投稿はありません。</div>';
 
@@ -1277,153 +1329,154 @@
       }
 
       postList.innerHTML =
-        filtered.map(function(post){
-          const photos =
-            post.images.map(function(url,index){
-              return `
-                <a
-                  class="photo-box"
-                  href="${escapeAttribute(url)}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <img
-                    src="${escapeAttribute(url)}"
-                    alt="投稿写真 ${index + 1}"
-                    loading="lazy"
+        filtered
+          .map((post) => {
+            const photos =
+              post.images
+                .map((url, index) => `
+                  <a
+                    class="photo-box"
+                    href="${escapeAttribute(url)}"
+                    target="_blank"
+                    rel="noopener"
                   >
-                </a>
-              `;
-            }).join("");
+                    <img
+                      src="${escapeAttribute(url)}"
+                      alt="投稿写真 ${index + 1}"
+                      loading="lazy"
+                    >
+                  </a>
+                `)
+                .join("");
 
-          return `
-            <article
-              class="item-card"
-              data-post-id="${escapeAttribute(post.id)}"
-            >
-              <div class="item-head">
-                <div>
-                  <p class="item-id">
-                    投稿ID：${escapeHtml(post.id)}
-                  </p>
+            return `
+              <article
+                class="item-card"
+                data-post-id="${escapeAttribute(post.id)}"
+              >
+                <div class="item-head">
+                  <div>
+                    <p class="item-id">
+                      投稿ID：${escapeHtml(post.id)}
+                    </p>
 
-                  <p class="item-date">
-                    ${escapeHtml(post.date)}
-                  </p>
+                    <p class="item-date">
+                      ${escapeHtml(post.date)}
+                    </p>
+                  </div>
+
+                  <span
+                    class="status-badge ${getStatusClass(post.status)}"
+                  >
+                    ${escapeHtml(post.status)}
+                  </span>
                 </div>
 
-                <span
-                  class="status-badge ${getStatusClass(post.status)}"
+                <h3 class="item-title">
+                  ${escapeHtml(post.nickname)}
+                </h3>
+
+                <p
+                  class="stars"
+                  aria-label="星${post.rating}つ"
                 >
-                  ${escapeHtml(post.status)}
-                </span>
-              </div>
+                  ${"★".repeat(post.rating)}${"☆".repeat(5 - post.rating)}
+                </p>
 
-              <h3 class="item-title">
-                ${escapeHtml(post.nickname)}
-              </h3>
+                ${
+                  post.menuName
+                    ? `
+                      <p class="menu-name">
+                        商品名：${escapeHtml(post.menuName)}
+                      </p>
+                    `
+                    : ""
+                }
 
-              <p
-                class="stars"
-                aria-label="星${post.rating}つ"
-              >
-                ${"★".repeat(post.rating)}${"☆".repeat(5 - post.rating)}
-              </p>
+                <p class="item-text">
+                  ${escapeHtml(post.comment)}
+                </p>
 
-              ${
-                post.menuName
-                  ? `
-                    <p class="menu-name">
-                      商品名：${escapeHtml(post.menuName)}
-                    </p>
-                  `
-                  : ""
-              }
+                ${
+                  photos
+                    ? `
+                      <div class="photo-row">
+                        ${photos}
+                      </div>
+                    `
+                    : ""
+                }
 
-              <p class="item-text">
-                ${escapeHtml(post.comment)}
-              </p>
+                ${
+                  post.approvedAt
+                    ? `
+                      <p class="help">
+                        承認日時：${escapeHtml(post.approvedAt)}
+                      </p>
+                    `
+                    : ""
+                }
 
-              ${
-                photos
-                  ? `
-                    <div class="photo-row">
-                      ${photos}
-                    </div>
-                  `
-                  : ""
-              }
-
-              ${
-                post.approvedAt
-                  ? `
-                    <p class="help">
-                      承認日時：${escapeHtml(post.approvedAt)}
-                    </p>
-                  `
-                  : ""
-              }
-
-              <label
-                class="label"
-                for="notes-${escapeAttribute(post.id)}"
-              >
-                管理者備考
-              </label>
-
-              <textarea
-                class="notes-input"
-                id="notes-${escapeAttribute(post.id)}"
-                maxlength="500"
-                placeholder="確認内容や非公開理由など"
-              >${escapeHtml(post.notes)}</textarea>
-
-              <div class="action-row">
-                <button
-                  class="action-button publish"
-                  type="button"
-                  data-post-action="公開"
+                <label
+                  class="label"
+                  for="notes-${escapeAttribute(post.id)}"
                 >
-                  公開する
-                </button>
+                  管理者備考
+                </label>
 
-                <button
-                  class="action-button pending"
-                  type="button"
-                  data-post-action="確認待ち"
-                >
-                  確認待ち
-                </button>
+                <textarea
+                  class="notes-input"
+                  id="notes-${escapeAttribute(post.id)}"
+                  maxlength="500"
+                  placeholder="確認内容や非公開理由など"
+                >${escapeHtml(post.notes)}</textarea>
 
-                <button
-                  class="action-button hide"
-                  type="button"
-                  data-post-action="非公開"
-                >
-                  非公開
-                </button>
+                <div class="action-row">
+                  <button
+                    class="action-button publish"
+                    type="button"
+                    data-post-action="公開"
+                  >
+                    公開する
+                  </button>
 
-                <button
-                  class="action-button save"
-                  type="button"
-                  data-post-action="備考保存"
-                >
-                  備考保存
-                </button>
-              </div>
-            </article>
-          `;
-        })
-        .join("");
+                  <button
+                    class="action-button pending"
+                    type="button"
+                    data-post-action="確認待ち"
+                  >
+                    確認待ち
+                  </button>
+
+                  <button
+                    class="action-button hide"
+                    type="button"
+                    data-post-action="非公開"
+                  >
+                    非公開
+                  </button>
+
+                  <button
+                    class="action-button save"
+                    type="button"
+                    data-post-action="備考保存"
+                  >
+                    備考保存
+                  </button>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
     }
 
-    async function handlePostAction(event){
+    async function handlePostAction(event) {
       const button =
         event.target.closest(
           "[data-post-action]"
         );
 
-      if(!button){
+      if (!button) {
         return;
       }
 
@@ -1433,11 +1486,12 @@
         );
 
       const post =
-        posts.find(function(item){
-          return item.id === card.dataset.postId;
-        });
+        posts.find(
+          (item) =>
+            item.id === card.dataset.postId
+        );
 
-      if(!post){
+      if (!post) {
         return;
       }
 
@@ -1455,7 +1509,7 @@
           ? post.status
           : action;
 
-      setCardDisabled(card,true);
+      setCardDisabled(card, true);
 
       showMessage(
         adminStatus,
@@ -1463,14 +1517,14 @@
         "info"
       );
 
-      try{
+      try {
         const result =
           await apiRequest({
-            mode:"adminUpdate",
-            adminPassword:adminPassword,
-            postId:post.id,
-            status:status,
-            notes:notes
+            mode: "adminUpdate",
+            adminPassword,
+            postId: post.id,
+            status,
+            notes
           });
 
         post.status =
@@ -1499,8 +1553,8 @@
           "success"
         );
 
-      }catch(error){
-        setCardDisabled(card,false);
+      } catch (error) {
+        setCardDisabled(card, false);
 
         showMessage(
           adminStatus,
@@ -1510,8 +1564,8 @@
       }
     }
 
-    function renderNews(){
-      if(!newsItems.length){
+    function renderNews() {
+      if (!newsItems.length) {
         newsList.innerHTML =
           '<div class="empty-box">お知らせはまだありません。</div>';
 
@@ -1519,150 +1573,151 @@
       }
 
       newsList.innerHTML =
-        newsItems.map(function(item){
-          const photos =
-            item.images.map(function(url,index){
-              return `
-                <a
-                  class="photo-box"
-                  href="${escapeAttribute(url)}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <img
-                    src="${escapeAttribute(url)}"
-                    alt="お知らせ画像 ${index + 1}"
-                    loading="lazy"
+        newsItems
+          .map((item) => {
+            const photos =
+              item.images
+                .map((url, index) => `
+                  <a
+                    class="photo-box"
+                    href="${escapeAttribute(url)}"
+                    target="_blank"
+                    rel="noopener"
                   >
-                </a>
-              `;
-            }).join("");
+                    <img
+                      src="${escapeAttribute(url)}"
+                      alt="お知らせ画像 ${index + 1}"
+                      loading="lazy"
+                    >
+                  </a>
+                `)
+                .join("");
 
-          return `
-            <article
-              class="item-card"
-              data-news-id="${escapeAttribute(item.id)}"
-            >
-              <div class="item-head">
-                <div>
-                  <p class="item-id">
-                    お知らせID：${escapeHtml(item.id)}
-                  </p>
+            return `
+              <article
+                class="item-card news-card"
+                data-news-id="${escapeAttribute(item.id)}"
+              >
+                <div class="item-head">
+                  <div>
+                    <p class="item-id">
+                      お知らせID：${escapeHtml(item.id)}
+                    </p>
 
-                  <p class="item-date">
-                    投稿日：${escapeHtml(item.date)}
-                  </p>
+                    <p class="item-date">
+                      投稿日：${escapeHtml(item.date)}
+                    </p>
+                  </div>
+
+                  <span
+                    class="status-badge ${getStatusClass(item.status)}"
+                  >
+                    ${escapeHtml(item.status)}
+                  </span>
                 </div>
 
-                <span
-                  class="status-badge ${getStatusClass(item.status)}"
-                >
-                  ${escapeHtml(item.status)}
-                </span>
-              </div>
+                <h3 class="item-title">
+                  ${escapeHtml(item.title)}
+                </h3>
 
-              <h3 class="item-title">
-                ${escapeHtml(item.title)}
-              </h3>
+                <p class="item-text">
+                  ${escapeHtml(item.body)}
+                </p>
 
-              <p class="item-text">
-                ${escapeHtml(item.body)}
-              </p>
-
-              ${
-                photos
-                  ? `
-                    <div class="photo-row">
-                      ${photos}
-                    </div>
-                  `
-                  : ""
-              }
-
-              <div class="news-links">
                 ${
-                  item.videoUrl
+                  photos
                     ? `
-                      <a
-                        href="${escapeAttribute(item.videoUrl)}"
-                        target="_blank"
-                        rel="noopener"
-                      >
-                        YouTubeを確認
-                      </a>
+                      <div class="photo-row">
+                        ${photos}
+                      </div>
                     `
                     : ""
                 }
 
-                ${
-                  item.externalUrl
-                    ? `
-                      <a
-                        href="${escapeAttribute(item.externalUrl)}"
-                        target="_blank"
-                        rel="noopener"
-                      >
-                        外部リンクを確認
-                      </a>
-                    `
-                    : ""
-                }
-              </div>
+                <div class="news-links">
+                  ${
+                    item.videoUrl
+                      ? `
+                        <a
+                          href="${escapeAttribute(item.videoUrl)}"
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          YouTubeを確認
+                        </a>
+                      `
+                      : ""
+                  }
 
-              <div class="action-row">
-                <button
-                  class="action-button publish"
-                  type="button"
-                  data-news-action="公開"
-                >
-                  公開
-                </button>
+                  ${
+                    item.externalUrl
+                      ? `
+                        <a
+                          href="${escapeAttribute(item.externalUrl)}"
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          外部リンクを確認
+                        </a>
+                      `
+                      : ""
+                  }
+                </div>
 
-                <button
-                  class="action-button pending"
-                  type="button"
-                  data-news-action="下書き"
-                >
-                  下書き
-                </button>
+                <div class="action-row">
+                  <button
+                    class="action-button publish"
+                    type="button"
+                    data-news-action="公開"
+                  >
+                    公開
+                  </button>
 
-                <button
-                  class="action-button hide"
-                  type="button"
-                  data-news-action="非公開"
-                >
-                  非公開
-                </button>
+                  <button
+                    class="action-button pending"
+                    type="button"
+                    data-news-action="下書き"
+                  >
+                    下書き
+                  </button>
 
-                <button
-                  class="action-button save"
-                  type="button"
-                  data-news-action="編集"
-                >
-                  編集
-                </button>
+                  <button
+                    class="action-button hide"
+                    type="button"
+                    data-news-action="非公開"
+                  >
+                    非公開
+                  </button>
 
-                <button
-                  class="action-button hide"
-                  type="button"
-                  data-news-action="削除"
-                >
-                  削除
-                </button>
-              </div>
-            </article>
-          `;
-        })
-        .join("");
+                  <button
+                    class="action-button save"
+                    type="button"
+                    data-news-action="編集"
+                  >
+                    編集
+                  </button>
+
+                  <button
+                    class="action-button hide"
+                    type="button"
+                    data-news-action="削除"
+                  >
+                    削除
+                  </button>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
     }
 
-    async function handleNewsAction(event){
+    async function handleNewsAction(event) {
       const button =
         event.target.closest(
           "[data-news-action]"
         );
 
-      if(!button){
+      if (!button) {
         return;
       }
 
@@ -1672,32 +1727,33 @@
         );
 
       const item =
-        newsItems.find(function(news){
-          return news.id === card.dataset.newsId;
-        });
+        newsItems.find(
+          (news) =>
+            news.id === card.dataset.newsId
+        );
 
-      if(!item){
+      if (!item) {
         return;
       }
 
       const action =
         button.dataset.newsAction;
 
-      if(action === "編集"){
+      if (action === "編集") {
         editNews(item);
         return;
       }
 
-      if(action === "削除"){
-        await deleteNewsItem(item,card);
+      if (action === "削除") {
+        await deleteNewsItem(item, card);
         return;
       }
 
-      await saveNewsStatus(item,action,card);
+      await saveNewsStatus(item, action, card);
     }
 
-    async function saveNewsStatus(item,status,card){
-      setCardDisabled(card,true);
+    async function saveNewsStatus(item, status, card) {
+      setCardDisabled(card, true);
 
       showMessage(
         adminStatus,
@@ -1705,19 +1761,19 @@
         "info"
       );
 
-      try{
+      try {
         await apiRequest({
-          mode:"adminNewsSave",
-          adminPassword:adminPassword,
-          newsId:item.id,
-          date:item.date,
-          title:item.title,
-          body:item.body,
-          existingImages:item.images,
-          newImages:[],
-          videoUrl:item.videoUrl,
-          externalUrl:item.externalUrl,
-          status:status
+          mode: "adminNewsSave",
+          adminPassword,
+          newsId: item.id,
+          date: item.date,
+          title: item.title,
+          body: item.body,
+          existingImages: item.images,
+          newImages: [],
+          videoUrl: item.videoUrl,
+          externalUrl: item.externalUrl,
+          status
         });
 
         await loadNewsOnly();
@@ -1728,8 +1784,8 @@
           "success"
         );
 
-      }catch(error){
-        setCardDisabled(card,false);
+      } catch (error) {
+        setCardDisabled(card, false);
 
         showMessage(
           adminStatus,
@@ -1739,18 +1795,18 @@
       }
     }
 
-    async function deleteNewsItem(item,card){
-      if(
+    async function deleteNewsItem(item, card) {
+      if (
         !window.confirm(
           "この記事を完全に削除します。\n" +
           "削除した記事は元に戻せません。\n" +
           "本当に削除しますか？"
         )
-      ){
+      ) {
         return;
       }
 
-      setCardDisabled(card,true);
+      setCardDisabled(card, true);
 
       showMessage(
         adminStatus,
@@ -1758,16 +1814,14 @@
         "info"
       );
 
-      try{
+      try {
         await apiRequest({
-          mode:"adminNewsDelete",
-          adminPassword:adminPassword,
-          newsId:item.id
+          mode: "adminNewsDelete",
+          adminPassword,
+          newsId: item.id
         });
 
-        if(
-          $("newsId").value === item.id
-        ){
+        if ($("newsId").value === item.id) {
           resetNewsForm();
         }
 
@@ -1779,8 +1833,8 @@
           "success"
         );
 
-      }catch(error){
-        setCardDisabled(card,false);
+      } catch (error) {
+        setCardDisabled(card, false);
 
         showMessage(
           adminStatus,
@@ -1790,12 +1844,9 @@
       }
     }
 
-    function editNews(item){
+    function editNews(item) {
       $("newsId").value = item.id;
-
-      $("newsDate").value =
-        toDateInputValue(item.date);
-
+      $("newsDate").value = toDateInputValue(item.date);
       $("newsTitle").value = item.title;
       $("newsBody").value = item.body;
       $("newsVideoUrl").value = item.videoUrl;
@@ -1803,22 +1854,22 @@
       $("newsStatus").value = item.status;
 
       existingNewsImages =
-        item.images.slice(0,MAX_PHOTOS);
+        item.images.slice(0, MAX_PHOTOS);
 
       newNewsFiles = [];
 
       renderNewsPhotoPreview();
 
-      $("newsSaveButton").textContent =
+      newsSaveButton.textContent =
         "お知らせを更新";
 
       newsForm.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
+        behavior: "smooth",
+        block: "start"
       });
     }
 
-    async function handleNewsSave(event){
+    async function handleNewsSave(event) {
       event.preventDefault();
 
       const date =
@@ -1830,7 +1881,7 @@
       const body =
         $("newsBody").value.trim();
 
-      if(!date || !title || !body){
+      if (!date || !title || !body) {
         showMessage(
           adminStatus,
           "投稿日・タイトル・本文を入力してください。",
@@ -1840,11 +1891,11 @@
         return;
       }
 
-      if(
+      if (
         existingNewsImages.length +
         newNewsFiles.length >
         MAX_PHOTOS
-      ){
+      ) {
         showMessage(
           adminStatus,
           "画像は最大5枚までです。",
@@ -1854,7 +1905,7 @@
         return;
       }
 
-      $("newsSaveButton").disabled = true;
+      newsSaveButton.disabled = true;
 
       showMessage(
         adminStatus,
@@ -1862,15 +1913,15 @@
         "info"
       );
 
-      try{
+      try {
         const convertedImages = [];
 
-        for(
+        for (
           let index = 0;
           index < newNewsFiles.length;
           index++
-        ){
-          $("newsSaveButton").textContent =
+        ) {
+          newsSaveButton.textContent =
             "画像準備 " +
             String(index + 1) +
             " / " +
@@ -1883,28 +1934,29 @@
           );
         }
 
-        $("newsSaveButton").textContent =
+        newsSaveButton.textContent =
           "保存しています…";
 
         await apiRequest({
-          mode:"adminNewsSave",
-          adminPassword:adminPassword,
-          newsId:$("newsId").value,
-          date:date,
-          title:title,
-          body:body,
-          existingImages:existingNewsImages,
-          newImages:convertedImages,
-          videoUrl:safeUrl(
+          mode: "adminNewsSave",
+          adminPassword,
+          newsId: $("newsId").value,
+          date,
+          title,
+          body,
+          existingImages: existingNewsImages,
+          newImages: convertedImages,
+          videoUrl: safeUrl(
             $("newsVideoUrl").value
           ),
-          externalUrl:safeUrl(
+          externalUrl: safeUrl(
             $("newsExternalUrl").value
           ),
-          status:$("newsStatus").value
+          status: $("newsStatus").value
         });
 
         resetNewsForm();
+
         await loadNewsOnly();
 
         showMessage(
@@ -1913,26 +1965,26 @@
           "success"
         );
 
-      }catch(error){
+      } catch (error) {
         showMessage(
           adminStatus,
           getErrorMessage(error),
           "error"
         );
 
-      }finally{
-        $("newsSaveButton").disabled = false;
+      } finally {
+        newsSaveButton.disabled = false;
 
-        $("newsSaveButton").textContent =
+        newsSaveButton.textContent =
           "お知らせを保存";
       }
     }
 
-    async function loadNewsOnly(){
+    async function loadNewsOnly() {
       const result =
         await apiRequest({
-          mode:"adminNewsList",
-          adminPassword:adminPassword
+          mode: "adminNewsList",
+          adminPassword
         });
 
       newsItems =
@@ -1943,39 +1995,38 @@
       renderNews();
     }
 
-    function handleNewsPhotoSelection(event){
+    function handleNewsPhotoSelection(event) {
       const files =
         Array.from(
           event.target.files || []
         );
 
-      for(const file of files){
-        if(
+      for (const file of files) {
+        if (
           existingNewsImages.length +
           newNewsFiles.length >=
           MAX_PHOTOS
-        ){
+        ) {
           break;
         }
 
-        if(
+        if (
           !file.type.startsWith("image/") ||
           file.size > MAX_FILE_SIZE
-        ){
+        ) {
           continue;
         }
 
         const duplicate =
-          newNewsFiles.some(function(selected){
-            return (
+          newNewsFiles.some(
+            (selected) =>
               selected.name === file.name &&
               selected.size === file.size &&
               selected.lastModified ===
                 file.lastModified
-            );
-          });
+          );
 
-        if(!duplicate){
+        if (!duplicate) {
           newNewsFiles.push(file);
         }
       }
@@ -1984,11 +2035,11 @@
       renderNewsPhotoPreview();
     }
 
-    function renderNewsPhotoPreview(){
+    function renderNewsPhotoPreview() {
       newsPhotoPreview.innerHTML = "";
 
       existingNewsImages.forEach(
-        function(url,index){
+        (url, index) => {
           newsPhotoPreview.appendChild(
             createPreviewBox(
               url,
@@ -2000,7 +2051,7 @@
       );
 
       newNewsFiles.forEach(
-        function(file,index){
+        (file, index) => {
           const objectUrl =
             URL.createObjectURL(file);
 
@@ -2016,12 +2067,8 @@
 
           image.addEventListener(
             "load",
-            function(){
-              URL.revokeObjectURL(
-                objectUrl
-              );
-            },
-            {once:true}
+            () => URL.revokeObjectURL(objectUrl),
+            { once: true }
           );
 
           newsPhotoPreview.appendChild(box);
@@ -2036,11 +2083,12 @@
         " / 5枚";
     }
 
-    function createPreviewBox(url,kind,index){
+    function createPreviewBox(url, kind, index) {
       const box =
         document.createElement("div");
 
-      box.className = "photo-box";
+      box.className =
+        "photo-box";
 
       const image =
         document.createElement("img");
@@ -2051,25 +2099,33 @@
       const button =
         document.createElement("button");
 
-      button.className = "remove-photo";
-      button.type = "button";
-      button.textContent = "×";
-      button.dataset.removeKind = kind;
-      button.dataset.removeIndex = String(index);
+      button.className =
+        "remove-photo";
 
-      box.appendChild(image);
-      box.appendChild(button);
+      button.type =
+        "button";
+
+      button.textContent =
+        "×";
+
+      button.dataset.removeKind =
+        kind;
+
+      button.dataset.removeIndex =
+        String(index);
+
+      box.append(image, button);
 
       return box;
     }
 
-    function handlePreviewRemove(event){
+    function handlePreviewRemove(event) {
       const button =
         event.target.closest(
           "[data-remove-kind]"
         );
 
-      if(!button){
+      if (!button) {
         return;
       }
 
@@ -2078,74 +2134,87 @@
           button.dataset.removeIndex
         );
 
-      if(
+      if (
         button.dataset.removeKind ===
         "existing"
-      ){
-        existingNewsImages.splice(index,1);
-      }else{
-        newNewsFiles.splice(index,1);
+      ) {
+        existingNewsImages.splice(index, 1);
+      } else {
+        newNewsFiles.splice(index, 1);
       }
 
       renderNewsPhotoPreview();
     }
 
-    function resetNewsForm(){
+    function resetNewsForm() {
       newsForm.reset();
 
-      $("newsId").value = "";
+      $("newsId").value =
+        "";
 
       existingNewsImages = [];
       newNewsFiles = [];
 
       setToday();
 
-      $("newsStatus").value = "下書き";
+      $("newsStatus").value =
+        "下書き";
 
-      $("newsSaveButton").textContent =
+      newsSaveButton.textContent =
         "お知らせを保存";
 
       renderNewsPhotoPreview();
     }
 
-    function convertImageForUpload(file){
+    function convertImageForUpload(file) {
       return new Promise(
-        function(resolve,reject){
+        (resolve, reject) => {
           const objectUrl =
             URL.createObjectURL(file);
 
           const image =
             new Image();
 
-          image.onload =
-            function(){
-              let width =
-                image.naturalWidth ||
-                image.width;
+          image.onload = () => {
+            let width =
+              image.naturalWidth ||
+              image.width;
 
-              let height =
-                image.naturalHeight ||
-                image.height;
+            let height =
+              image.naturalHeight ||
+              image.height;
 
-              if(width > MAX_IMAGE_WIDTH){
-                const ratio =
-                  MAX_IMAGE_WIDTH / width;
+            if (
+              width >
+              MAX_IMAGE_WIDTH
+            ) {
+              const ratio =
+                MAX_IMAGE_WIDTH /
+                width;
 
-                width = MAX_IMAGE_WIDTH;
-                height =
-                  Math.round(height * ratio);
-              }
+              width =
+                MAX_IMAGE_WIDTH;
 
-              const canvas =
-                document.createElement("canvas");
+              height =
+                Math.round(
+                  height * ratio
+                );
+            }
 
-              canvas.width = width;
-              canvas.height = height;
+            const canvas =
+              document.createElement(
+                "canvas"
+              );
 
-              const context =
-                canvas.getContext("2d");
+            canvas.width =
+              width;
 
-              context.drawImage(
+            canvas.height =
+              height;
+
+            canvas
+              .getContext("2d")
+              .drawImage(
                 image,
                 0,
                 0,
@@ -2153,46 +2222,56 @@
                 height
               );
 
-              URL.revokeObjectURL(objectUrl);
+            URL.revokeObjectURL(
+              objectUrl
+            );
 
-              resolve({
-                name:replaceExtension(
-                  file.name,
-                  "jpg"
-                ),
-                mimeType:"image/jpeg",
-                data:canvas.toDataURL(
-                  "image/jpeg",
-                  JPEG_QUALITY
-                )
-              });
-            };
+            resolve({
+              name: replaceExtension(
+                file.name,
+                "jpg"
+              ),
+              mimeType: "image/jpeg",
+              data: canvas.toDataURL(
+                "image/jpeg",
+                JPEG_QUALITY
+              )
+            });
+          };
 
-          image.onerror =
-            function(){
-              URL.revokeObjectURL(objectUrl);
+          image.onerror = () => {
+            URL.revokeObjectURL(
+              objectUrl
+            );
 
-              reject(
-                new Error(
-                  "画像を読み込めませんでした。"
-                )
-              );
-            };
+            reject(
+              new Error(
+                "画像を読み込めませんでした。"
+              )
+            );
+          };
 
-          image.src = objectUrl;
+          image.src =
+            objectUrl;
         }
       );
     }
 
-    function replaceExtension(filename,extension){
+    function replaceExtension(
+      filename,
+      extension
+    ) {
       const cleanName =
         String(filename || "photo")
-          .replace(/\.[^.]+$/,"")
+          .replace(
+            /\.[^.]+$/,
+            ""
+          )
           .replace(
             /[^a-zA-Z0-9ぁ-んァ-ヶ一-龠_-]/g,
             "-"
           )
-          .slice(0,60);
+          .slice(0, 60);
 
       return (
         cleanName ||
@@ -2202,63 +2281,71 @@
       extension;
     }
 
-    function normalizePostStatus(value){
+    function normalizePostStatus(value) {
       const status =
         String(value || "");
 
-      if(status === "公開"){
+      if (status === "公開") {
         return "公開";
       }
 
-      if(status === "非公開"){
+      if (status === "非公開") {
         return "非公開";
       }
 
       return "確認待ち";
     }
 
-    function normalizeNewsStatus(value){
+    function normalizeNewsStatus(value) {
       const status =
         String(value || "");
 
-      if(status === "公開"){
+      if (status === "公開") {
         return "公開";
       }
 
-      if(status === "非公開"){
+      if (status === "非公開") {
         return "非公開";
       }
 
       return "下書き";
     }
 
-    function getStatusClass(status){
-      if(status === "公開"){
+    function getStatusClass(status) {
+      if (status === "公開") {
         return "public";
       }
 
-      if(status === "非公開"){
+      if (status === "非公開") {
         return "hidden";
       }
 
-      if(status === "下書き"){
+      if (status === "下書き") {
         return "draft";
       }
 
       return "pending";
     }
 
-    function setCardDisabled(card,disabled){
+    function setCardDisabled(card, disabled) {
       card
-        .querySelectorAll("button,textarea")
-        .forEach(function(element){
-          element.disabled = disabled;
-        });
+        .querySelectorAll(
+          "button,textarea"
+        )
+        .forEach(
+          (element) => {
+            element.disabled =
+              disabled;
+          }
+        );
     }
 
-    function setLoading(isLoading){
-      loginButton.disabled = isLoading;
-      refreshButton.disabled = isLoading;
+    function setLoading(isLoading) {
+      loginButton.disabled =
+        isLoading;
+
+      refreshButton.disabled =
+        isLoading;
 
       loginButton.textContent =
         isLoading
@@ -2266,39 +2353,42 @@
           : "管理者画面を開く";
     }
 
-    function setToday(){
-      const now = new Date();
+    function setToday() {
+      const now =
+        new Date();
 
       $("newsDate").value =
         [
           now.getFullYear(),
           String(
             now.getMonth() + 1
-          ).padStart(2,"0"),
+          ).padStart(2, "0"),
           String(
             now.getDate()
-          ).padStart(2,"0")
+          ).padStart(2, "0")
         ].join("-");
     }
 
-    function toDateInputValue(value){
+    function toDateInputValue(value) {
       const text =
         String(value || "").trim();
 
-      if(
-        /^\d{4}-\d{2}-\d{2}$/.test(text)
-      ){
+      if (
+        /^\d{4}-\d{2}-\d{2}$/.test(
+          text
+        )
+      ) {
         return text;
       }
 
       const date =
         new Date(text);
 
-      if(
+      if (
         Number.isNaN(
           date.getTime()
         )
-      ){
+      ) {
         return "";
       }
 
@@ -2306,23 +2396,29 @@
         date.getFullYear(),
         String(
           date.getMonth() + 1
-        ).padStart(2,"0"),
+        ).padStart(2, "0"),
         String(
           date.getDate()
-        ).padStart(2,"0")
+        ).padStart(2, "0")
       ].join("-");
     }
 
-    function logout(){
+    function logout() {
       sessionStorage.removeItem(
         PASSWORD_KEY
       );
 
-      adminPassword = "";
-      posts = [];
-      newsItems = [];
+      adminPassword =
+        "";
 
-      passwordInput.value = "";
+      posts =
+        [];
+
+      newsItems =
+        [];
+
+      passwordInput.value =
+        "";
 
       adminPanel.classList.remove(
         "show"
@@ -2335,24 +2431,33 @@
       clearMessage(loginStatus);
 
       window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        top: 0,
+        behavior: "smooth"
       });
     }
 
-    function showMessage(element,message,type){
-      element.textContent = message;
+    function showMessage(
+      element,
+      message,
+      type
+    ) {
+      element.textContent =
+        message;
+
       element.className =
         "status-message show " +
         type;
     }
 
-    function clearMessage(element){
-      element.textContent = "";
-      element.className = "status-message";
+    function clearMessage(element) {
+      element.textContent =
+        "";
+
+      element.className =
+        "status-message";
     }
 
-    function getErrorMessage(error){
+    function getErrorMessage(error) {
       return (
         error &&
         error.message
@@ -2361,7 +2466,7 @@
         : "処理中にエラーが発生しました。";
     }
 
-    function safeUrl(value){
+    function safeUrl(value) {
       const url =
         String(value || "").trim();
 
@@ -2370,24 +2475,22 @@
         : "";
     }
 
-    function escapeHtml(value){
+    function escapeHtml(value) {
       return String(
         value ?? ""
       ).replace(
         /[&<>'"]/g,
-        function(char){
-          return {
-            "&":"&amp;",
-            "<":"&lt;",
-            ">":"&gt;",
-            "'":"&#39;",
-            '"':"&quot;"
-          }[char];
-        }
+        (char) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          "'": "&#39;",
+          '"': "&quot;"
+        }[char])
       );
     }
 
-    function escapeAttribute(value){
+    function escapeAttribute(value) {
       return escapeHtml(value);
     }
   </script>
