@@ -1,0 +1,1207 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>おうちcafeパン工房｜志木市の天然酵母パン</title>
+  <meta name="description" content="埼玉県志木市の古民家風店舗。国産小麦とホシノ天然酵母を使った、安心して食べられるパンをお届けします。店内イートイン、いろはベースを併設。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="おうちcafeパン工房｜志木市の天然酵母パン">
+  <meta property="og:description" content="蔵造りの趣ある店舗で、焼きたてパンとドリンクをどうぞ。">
+  <meta property="og:image" content="https://ichirohns-jpg.github.io/ouchicafe-shop-dx/main.jpg">
+  <meta property="og:url" content="https://ichirohns-jpg.github.io/ouchicafe-shop-dx/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="icon.jpg">
+
+  <style>
+    :root {
+      --brown: #4b2619;
+      --brown-light: #76513d;
+      --cream: #fffaf1;
+      --paper: #fffdf8;
+      --line: #eadfd2;
+      --green: #667253;
+      --shadow: 0 12px 32px rgba(73, 42, 24, .10);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--brown);
+      background: var(--cream);
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.8;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 253, 248, .96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .brand span {
+      font-size: clamp(15px, 2vw, 21px);
+    }
+
+    nav {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--brown-light);
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-button,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: var(--brown);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .nav-button:hover,
+    .button:hover {
+      opacity: .86;
+      text-decoration: none;
+    }
+
+    .button.sub {
+      background: var(--green);
+    }
+
+    .button.light {
+      background: #fff;
+      color: var(--brown);
+      border: 1px solid var(--line);
+    }
+
+    .hero {
+      min-height: min(690px, 78vh);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      background: #3b241b;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(45, 24, 14, .67),
+        rgba(45, 24, 14, .18) 70%,
+        rgba(45, 24, 14, .34)
+      );
+      z-index: 1;
+    }
+
+    .hero > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .92;
+    }
+
+    .hero-content {
+      width: min(1120px, calc(100% - 32px));
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      padding: 92px 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(35px, 6vw, 72px);
+      line-height: 1.2;
+      letter-spacing: .04em;
+      text-shadow: 0 3px 18px rgba(0,0,0,.25);
+    }
+
+    .hero-lead {
+      max-width: 650px;
+      margin: 22px 0 28px;
+      font-size: clamp(17px, 2.2vw, 24px);
+      font-weight: 700;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero .button.light {
+      background: rgba(255,255,255,.93);
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    section:nth-of-type(even) {
+      background: var(--paper);
+    }
+
+    .section-heading {
+      margin: 0 0 12px;
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.35;
+      letter-spacing: .05em;
+    }
+
+    .section-lead {
+      margin: 0 0 32px;
+      color: var(--brown-light);
+    }
+
+    .heading-mark {
+      display: block;
+      width: 52px;
+      height: 4px;
+      margin: 0 0 22px;
+      background: var(--brown);
+      border-radius: 99px;
+    }
+
+    .intro-grid,
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .intro-image,
+    .access-image {
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .intro-image img,
+    .access-image img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .values {
+      display: grid;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .value {
+      padding: 18px 20px;
+      border-left: 4px solid var(--green);
+      background: #fff;
+      border-radius: 0 12px 12px 0;
+      box-shadow: 0 5px 16px rgba(73, 42, 24, .06);
+    }
+
+    .value strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 18px;
+    }
+
+    .news-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .news-card {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 22px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 6px 20px rgba(73, 42, 24, .05);
+    }
+
+    .news-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .news-card h3 {
+      margin: 0 0 5px;
+      font-size: 21px;
+      line-height: 1.45;
+    }
+
+    .news-date {
+      margin: 0 0 8px;
+      color: var(--brown-light);
+      font-size: 13px;
+    }
+
+    .news-body {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+
+    .news-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+
+    .dynamic-message {
+      padding: 24px;
+      border: 1px dashed var(--line);
+      border-radius: 12px;
+      color: var(--brown-light);
+      background: #fff;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .menu-card {
+      overflow: hidden;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .menu-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .menu-card-body {
+      padding: 18px;
+    }
+
+    .menu-card h3 {
+      margin: 0 0 6px;
+      font-size: 19px;
+    }
+
+    .menu-card p {
+      margin: 0;
+      color: var(--brown-light);
+      font-size: 14px;
+    }
+
+    .feature-banner {
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-banner img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .feature-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(47, 28, 17, .7),
+        rgba(47, 28, 17, .08)
+      );
+    }
+
+    .feature-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      padding: 56px 42px;
+      color: #fff;
+    }
+
+    .feature-copy h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.3;
+    }
+
+    .feature-copy p {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .post-callout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 28px;
+      background: #f5eee5;
+      border-radius: 16px;
+    }
+
+    .post-callout p {
+      margin: 0;
+    }
+
+    .post-callout strong {
+      display: block;
+      font-size: 20px;
+    }
+
+    .review-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 4px 4px 16px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .review-card {
+      flex: 0 0 min(340px, 82vw);
+      scroll-snap-align: start;
+      padding: 20px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 5px 16px rgba(73, 42, 24, .06);
+    }
+
+    .review-card h3 {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .review-stars {
+      color: #b97624;
+      letter-spacing: .1em;
+    }
+
+    .review-card p {
+      margin: 10px 0 0;
+      white-space: pre-wrap;
+    }
+
+    .review-images {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin-top: 14px;
+    }
+
+    .review-images img {
+      width: 82px;
+      height: 82px;
+      flex: 0 0 82px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(73, 42, 24, .05);
+    }
+
+    .info-table th,
+    .info-table td {
+      padding: 15px 17px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .info-table th {
+      width: 31%;
+      background: #f8f1e8;
+      white-space: nowrap;
+    }
+
+    .info-table tr:last-child th,
+    .info-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .access-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .sns-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .sns-grid a {
+      min-width: 165px;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .sns-grid a:hover {
+      background: #f8f1e8;
+    }
+
+    footer {
+      padding: 36px 0 50px;
+      background: #382118;
+      color: #fff;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-inner p {
+      margin: 0;
+      opacity: .9;
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        min-height: 64px;
+      }
+
+      nav a:not(.nav-button) {
+        display: none;
+      }
+
+      .intro-grid,
+      .access-grid {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .news-card {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .news-card img {
+        height: 190px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-copy {
+        padding: 42px 24px;
+      }
+
+      .post-callout {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .info-table th,
+      .info-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .info-table th {
+        padding-bottom: 5px;
+        border-bottom: 0;
+      }
+
+      .info-table td {
+        padding-top: 0;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand" href="./">
+        <img src="icon.jpg" alt="おうちcafeパン工房のロゴ">
+        <span>おうちcafeパン工房</span>
+      </a>
+
+      <nav aria-label="メインメニュー">
+        <a href="#news">お知らせ</a>
+        <a href="#menu">パン・スイーツ</a>
+        <a href="#access">店舗情報</a>
+        <a class="nav-button" href="./post.html">お客様の投稿</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="おうちcafeパン工房">
+      <img src="main.jpg" alt="おうちcafeパン工房の店舗外観">
+
+      <div class="hero-content">
+        <p class="eyebrow">SHIKI · SAITAMA</p>
+        <h1>安心して食べられる<br>やさしいパン。</h1>
+        <p class="hero-lead">
+          蔵造りの趣ある店舗で、焼きたてパンとドリンクを。
+          店内でゆっくりお召し上がりいただけます。
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button" href="#menu">おすすめを見る</a>
+          <a class="button light" href="#access">店舗情報を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap intro-grid">
+        <div class="intro-image">
+          <img src="store.jpg" alt="暖簾がかかった店舗入口" loading="lazy">
+        </div>
+
+        <div>
+          <span class="heading-mark"></span>
+          <h2 class="section-heading">
+            志木の街に、<br>
+            人がつながるパン工房。
+          </h2>
+
+          <p class="section-lead">
+            志木市で15年愛されてきたおうちcafeパン工房が、
+            古民家風の新店舗へ移転しました。
+          </p>
+
+          <div class="values">
+            <div class="value">
+              <strong>国産小麦とホシノ天然酵母</strong>
+              保存料などの余計なものを使わず、
+              しっとり・もちもちのパンを焼いています。
+            </div>
+
+            <div class="value">
+              <strong>イートインでゆっくり</strong>
+              お買い上げのパンとドリンクを店内でお楽しみいただけます。
+            </div>
+
+            <div class="value">
+              <strong>地域交流スペース「いろはベース」</strong>
+              ワークショップやイベントを通じて、
+              人と人がつながる場所です。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="news">
+      <div class="wrap">
+        <span class="heading-mark"></span>
+        <h2 class="section-heading">お知らせ</h2>
+        <p class="section-lead">
+          お店からのお知らせや、季節の情報をお届けします。
+        </p>
+
+        <div id="newsList" class="news-list">
+          <div class="dynamic-message">
+            お知らせを読み込んでいます…
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="wrap">
+        <span class="heading-mark"></span>
+        <h2 class="section-heading">おすすめのパンとスイーツ</h2>
+        <p class="section-lead">
+          毎日の食卓にも、お土産にも。素材の味を大切にしています。
+        </p>
+
+        <div class="menu-grid">
+          <article class="menu-card">
+            <img src="menu.jpg" alt="店内に並ぶパン" loading="lazy">
+            <div class="menu-card-body">
+              <h3>天然酵母食パン</h3>
+              <p>
+                耳までふわふわ、しっとりもちもち。
+                そのままでもトーストでも。
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="menu-banner.jpg" alt="天然酵母食パンと志木織々雪粕あんぱん" loading="lazy">
+            <div class="menu-card-body">
+              <h3>志木織々 雪粕あんぱん</h3>
+              <p>
+                志木の地酒「志木織々」の酒粕を使った、
+                地域ならではの人気商品。
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="food.jpg" alt="パンとアイスコーヒーのイートイン" loading="lazy">
+            <div class="menu-card-body">
+              <h3>週末限定プリン・焼き菓子</h3>
+              <p>
+                お土産やおやつに。
+                週末の人気メニューもお楽しみに。
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="eat-in">
+      <div class="wrap">
+        <div class="feature-banner">
+          <img src="eat-in-banner.jpg" alt="店内のイートインスペース" loading="lazy">
+
+          <div class="feature-copy">
+            <h2>
+              店内で、ゆっくり<br>
+              お召し上がりいただけます。
+            </h2>
+            <p>
+              焼きたてパンとドリンクを、
+              落ち着いた店内でどうぞ。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="iroha">
+      <div class="wrap">
+        <div class="feature-banner">
+          <img src="iroha-base-banner.jpg" alt="いろはベースの店内" loading="lazy">
+
+          <div class="feature-copy">
+            <h2>いろはベース</h2>
+            <p>
+              パンを通じて、人と人がつながる場所。
+              ワークショップ・イベント・地域交流。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="wrap">
+        <span class="heading-mark"></span>
+        <h2 class="section-heading">お客様の声</h2>
+        <p class="section-lead">
+          ご来店の感想や写真をお寄せください。
+          確認後に掲載します。
+        </p>
+
+        <div class="post-callout">
+          <p>
+            <strong>あなたの一枚をお待ちしています。</strong>
+            写真は最大5枚まで投稿できます。
+          </p>
+          <a class="button sub" href="./post.html">投稿ページへ</a>
+        </div>
+
+        <div id="reviewList" class="review-scroll" style="margin-top:22px">
+          <div class="dynamic-message">
+            お客様の声を読み込んでいます…
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="access">
+      <div class="wrap access-grid">
+        <div>
+          <span class="heading-mark"></span>
+          <h2 class="section-heading">店舗情報・アクセス</h2>
+
+          <table class="info-table">
+            <tr>
+              <th>店名</th>
+              <td>おうちcafeパン工房</td>
+            </tr>
+
+            <tr>
+              <th>住所</th>
+              <td>
+                〒353-0004<br>
+                埼玉県志木市本町2-5-46 やまかく館1F
+              </td>
+            </tr>
+
+            <tr>
+              <th>営業時間</th>
+              <td>11:00～18:00</td>
+            </tr>
+
+            <tr>
+              <th>定休日</th>
+              <td>日曜日・月曜日（その他不定休あり）</td>
+            </tr>
+
+            <tr>
+              <th>電話</th>
+              <td>
+                <a href="tel:0484243066">048-424-3066</a>
+              </td>
+            </tr>
+
+            <tr>
+              <th>アクセス</th>
+              <td>
+                志木駅東口から徒歩約15分<br>
+                旧店舗から徒歩5分
+              </td>
+            </tr>
+
+            <tr>
+              <th>駐車場</th>
+              <td>店舗前に1台分あり</td>
+            </tr>
+
+            <tr>
+              <th>決済</th>
+              <td>PayPay、ほか電子マネー等</td>
+            </tr>
+          </table>
+
+          <div class="access-buttons">
+            <a
+              class="button"
+              href="https://www.google.com/maps/search/?api=1&query=%E5%9F%BC%E7%8E%89%E7%9C%8C%E5%BF%97%E6%9C%A8%E5%B8%82%E6%9C%AC%E7%94%BA2-5-46%20%E3%82%84%E3%81%BE%E3%81%8B%E3%81%8F%E9%A4%A81F"
+              target="_blank"
+              rel="noopener"
+            >
+              Googleマップで見る
+            </a>
+
+            <a class="button light" href="tel:0484243066">
+              電話する
+            </a>
+          </div>
+        </div>
+
+        <div class="access-image">
+          <img src="access.jpg" alt="店舗の案内看板" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section id="sns">
+      <div class="wrap">
+        <span class="heading-mark"></span>
+        <h2 class="section-heading">SNS・お問い合わせ</h2>
+        <p class="section-lead">
+          営業日や焼き上がり情報はSNSでもお知らせしています。
+        </p>
+
+        <div class="sns-grid">
+          <a href="https://www.instagram.com/ouchicafe2010/" target="_blank" rel="noopener">
+            Instagram
+          </a>
+
+          <a href="https://www.facebook.com/ouchicafe2010" target="_blank" rel="noopener">
+            Facebook
+          </a>
+
+          <a href="https://line.me/R/ti/p/@581afcew" target="_blank" rel="noopener">
+            LINE公式アカウント
+          </a>
+
+          <a href="tel:0484243066">
+            048-424-3066
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <p>© おうちcafeパン工房</p>
+      <p>
+        〒353-0004 埼玉県志木市本町2-5-46 やまかく館1F
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const GAS_URL =
+      "https://script.google.com/macros/s/AKfycbzvfcAQDMuk1E50HWGeR1reZxn0drMnLcra0o0VY-nN9hGWCSV0jhSv9IHrdvAgQUzDMw/exec";
+
+    const SITE_URL =
+      "https://ichirohns-jpg.github.io/ouchicafe-shop-dx/";
+
+    function imageSrc(value, fallback) {
+      const src = String(value || "").trim();
+
+      if (!src) {
+        return fallback || "";
+      }
+
+      if (/^(https?:|data:|blob:)/i.test(src)) {
+        return src;
+      }
+
+      return src;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>'"]/g, function(char) {
+        return {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          "'": "&#39;",
+          '"': "&quot;"
+        }[char];
+      });
+    }
+
+    function youtubeId(value) {
+      const text = String(value || "").trim();
+
+      const match = text.match(
+        /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{6,})/i
+      );
+
+      if (match) {
+        return match[1];
+      }
+
+      return /^[A-Za-z0-9_-]{6,}$/.test(text) ? text : "";
+    }
+
+    function formatDate(value) {
+      if (!value) {
+        return "";
+      }
+
+      const date = new Date(value);
+
+      if (Number.isNaN(date.getTime())) {
+        return String(value);
+      }
+
+      return new Intl.DateTimeFormat("ja-JP", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      }).format(date);
+    }
+
+    async function getJson(mode) {
+      const response = await fetch(
+        GAS_URL + "?mode=" + encodeURIComponent(mode),
+        { cache: "no-store" }
+      );
+
+      if (!response.ok) {
+        throw new Error("データを取得できませんでした。");
+      }
+
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error(
+          result.message || "データを取得できませんでした。"
+        );
+      }
+
+      return result;
+    }
+
+    function renderNews(news) {
+      const target = document.getElementById("newsList");
+
+      if (!Array.isArray(news) || news.length === 0) {
+        target.innerHTML =
+          '<div class="dynamic-message">現在、お知らせはありません。</div>';
+        return;
+      }
+
+      target.innerHTML = news.map(function(item) {
+        const images = Array.isArray(item.images)
+          ? item.images
+          : [];
+
+        const photo = imageSrc(
+          images[0],
+          "main-banner.jpg"
+        );
+
+        const id = encodeURIComponent(item.id || "");
+
+        const shareUrl =
+          item.shareUrl ||
+          (SITE_URL + "share-news.html?id=" + id);
+
+        const video = youtubeId(item.videoUrl);
+
+        return `
+          <article class="news-card">
+            <div>
+              <img
+                src="${escapeHtml(photo)}"
+                alt=""
+                loading="lazy"
+              >
+            </div>
+
+            <div>
+              <p class="news-date">
+                ${escapeHtml(formatDate(item.date))}
+              </p>
+
+              <h3>
+                ${escapeHtml(item.title || "お知らせ")}
+              </h3>
+
+              <p class="news-body">
+                ${escapeHtml(item.body || "")}
+              </p>
+
+              ${
+                video
+                  ? `
+                    <iframe
+                      class="video-frame"
+                      src="https://www.youtube.com/embed/${encodeURIComponent(video)}"
+                      title="YouTube動画"
+                      allowfullscreen
+                      loading="lazy">
+                    </iframe>
+                  `
+                  : ""
+              }
+
+              ${
+                item.externalUrl
+                  ? `
+                    <a
+                      class="news-link"
+                      href="${escapeHtml(item.externalUrl)}"
+                      target="_blank"
+                      rel="noopener">
+                      詳しく見る ↗
+                    </a>
+                  `
+                  : ""
+              }
+
+              <a
+                class="news-link"
+                href="${escapeHtml(shareUrl)}">
+                共有ページ
+              </a>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderReviews(posts) {
+      const target = document.getElementById("reviewList");
+
+      if (!Array.isArray(posts) || posts.length === 0) {
+        target.innerHTML =
+          '<div class="dynamic-message">掲載中のお客様の声はまだありません。</div>';
+        return;
+      }
+
+      target.innerHTML = posts.map(function(item) {
+        const images = Array.isArray(item.images)
+          ? item.images
+          : [];
+
+        const stars = Math.max(
+          0,
+          Math.min(5, Number(item.rating) || 0)
+        );
+
+        return `
+          <article class="review-card">
+            <h3>
+              ${escapeHtml(
+                item.nickname ||
+                item.name ||
+                "お客様"
+              )}
+            </h3>
+
+            <div
+              class="review-stars"
+              aria-label="星${stars}つ">
+              ${"★".repeat(stars)}${"☆".repeat(5 - stars)}
+            </div>
+
+            ${
+              item.menuName
+                ? `<small>${escapeHtml(item.menuName)}</small>`
+                : ""
+            }
+
+            <p>
+              ${escapeHtml(item.comment || "")}
+            </p>
+
+            ${
+              images.length
+                ? `
+                  <div class="review-images">
+                    ${images
+                      .slice(0, 5)
+                      .map(function(src) {
+                        return `
+                          <img
+                            src="${escapeHtml(imageSrc(src))}"
+                            alt="お客様の投稿写真"
+                            loading="lazy">
+                        `;
+                      })
+                      .join("")}
+                  </div>
+                `
+                : ""
+            }
+          </article>
+        `;
+      }).join("");
+    }
+
+    Promise.all([
+      getJson("publicNews"),
+      getJson("publicPosts")
+    ])
+      .then(function(results) {
+        renderNews(results[0].news);
+        renderReviews(results[1].posts);
+      })
+      .catch(function(error) {
+        document.getElementById("newsList").innerHTML =
+          '<div class="dynamic-message">お知らせを読み込めませんでした。</div>';
+
+        document.getElementById("reviewList").innerHTML =
+          '<div class="dynamic-message">お客様の声を読み込めませんでした。</div>';
+
+        console.error(error);
+      });
+  </script>
+</body>
+</html>
