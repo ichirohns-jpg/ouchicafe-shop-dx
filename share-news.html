@@ -12,6 +12,8 @@
   <meta property="og:url" content="https://ichirohns-jpg.github.io/ouchicafe-shop-dx/share-news.html">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="icon.jpg">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4b2619">
 
   <style>
     :root{
@@ -68,7 +70,9 @@
       border-radius:50%;
     }
 
-    .brand span{font-size:clamp(15px,3vw,21px)}
+    .brand span{
+      font-size:clamp(15px,3vw,21px);
+    }
 
     .back-link{
       color:var(--brown-light);
@@ -240,10 +244,6 @@
 
     const newsId =
       params.get("id") || "";
-
-    function $(id){
-      return document.getElementById(id);
-    }
 
     function escapeHtml(value){
       return String(value ?? "").replace(
@@ -518,6 +518,10 @@
           }
         }
       );
+    }
+
+    function $(id){
+      return document.getElementById(id);
     }
 
     if(!newsId){
