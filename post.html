@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>お客様の声を送る｜おうちcafeパン工房</title>
+  <meta name="description" content="おうちcafeパン工房へのご来店の感想や写真をお寄せください。">
+  <link rel="icon" href="icon.jpg">
+
+  <style>
+    :root {
+      --brown: #4b2619;
+      --brown-light: #76513d;
+      --cream: #fffaf1;
+      --line: #eadfd2;
+      --green: #667253;
+      --red: #a34b3b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--brown);
+      background: var(--cream);
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      width: min(760px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: rgba(255, 253, 248, .97);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .brand span {
+      font-size: clamp(15px, 3vw, 20px);
+    }
+
+    .back-link {
+      color: var(--brown-light);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 48px 0 72px;
+    }
+
+    .page-title {
+      margin: 0;
+      font-size: clamp(28px, 6vw, 44px);
+      line-height: 1.35;
+    }
+
+    .lead {
+      margin: 12px 0 28px;
+      color: var(--brown-light);
+    }
+
+    .card {
+      padding: clamp(20px, 5vw, 34px);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(73, 42, 24, .08);
+    }
+
+    .form-row {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    label {
+      font-weight: 700;
+    }
+
+    .required {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 7px;
+      border-radius: 999px;
+      background: #f4e5dc;
+      color: var(--red);
+      font-size: 11px;
+      vertical-align: middle;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 13px 14px;
+      color: var(--brown);
+      background: #fffdf9;
+      border: 1px solid #d9c9bb;
+      border-radius: 10px;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: 3px solid rgba(102, 114, 83, .18);
+      border-color: var(--green);
+    }
+
+    .stars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .stars label {
+      cursor: pointer;
+    }
+
+    .stars input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .star-choice {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 62px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #b97624;
+      background: #fffdf9;
+      font-size: 17px;
+    }
+
+    .stars input:checked + .star-choice {
+      color: #fff;
+      background: #b97624;
+      border-color: #b97624;
+    }
+
+    .file-help {
+      margin: 0;
+      color: var(--brown-light);
+      font-size: 13px;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px dashed #cbb9aa;
+      border-radius: 10px;
+      background: #fffdf9;
+      font: inherit;
+    }
+
+    .preview-list {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin-top: 14px;
+      padding-bottom: 4px;
+    }
+
+    .preview-item {
+      position: relative;
+      flex: 0 0 92px;
+    }
+
+    .preview-item img {
+      width: 92px;
+      height: 92px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+    }
+
+    .preview-number {
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 5px;
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(75, 38, 25, .82);
+      font-size: 12px;
+      text-align: center;
+      line-height: 22px;
+    }
+
+    .agree {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin: 22px 0;
+      font-size: 14px;
+      color: var(--brown-light);
+    }
+
+    .agree input {
+      width: 18px;
+      height: 18px;
+      margin-top: 4px;
+      accent-color: var(--green);
+    }
+
+    .submit-button {
+      width: 100%;
+      min-height: 54px;
+      border: 0;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--brown);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .submit-button:disabled {
+      cursor: wait;
+      opacity: .55;
+    }
+
+    .message {
+      display: none;
+      margin-bottom: 20px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      white-space: pre-wrap;
+    }
+
+    .message.show {
+      display: block;
+    }
+
+    .message.success {
+      color: #285b36;
+      background: #eaf5e9;
+    }
+
+    .message.error {
+      color: #8c2f24;
+      background: #fbe9e5;
+    }
+
+    .message.info {
+      color: #5d4b24;
+      background: #fff6d8;
+    }
+
+    .notice {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 12px;
+      background: #f7f0e8;
+      color: var(--brown-light);
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 34px 0 46px;
+      color: #fff;
+      background: #382118;
+      font-size: 13px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 560px) {
+      .header-inner {
+        min-height: 64px;
+      }
+
+      .brand img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .back-link {
+        font-size: 12px;
+      }
+
+      main {
+        padding-top: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand" href="./">
+        <img src="icon.jpg" alt="おうちcafeパン工房のロゴ">
+        <span>おうちcafeパン工房</span>
+      </a>
+
+      <a class="back-link" href="./">
+        トップページへ戻る
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <h1 class="page-title">
+        お客様の声をお寄せください
+      </h1>
+
+      <p class="lead">
+        ご来店の感想や、お気に入りのパンの写真をお待ちしています。<br>
+        送信内容はお店で確認した後、公開します。
+      </p>
+
+      <div id="message" class="message" role="status" aria-live="polite"></div>
+
+      <form id="postForm" class="card">
+        <div class="form-row">
+          <label for="nickname">
+            お名前・ニックネーム
+            <span class="required">必須</span>
+          </label>
+
+          <input
+            id="nickname"
+            name="nickname"
+            type="text"
+            maxlength="30"
+            placeholder="例：パン好きさん"
+            required>
+        </div>
+
+        <div class="form-row">
+          <label>
+            星評価
+            <span class="required">必須</span>
+          </label>
+
+          <div class="stars" role="radiogroup" aria-label="星評価">
+            <label>
+              <input type="radio" name="rating" value="1" required>
+              <span class="star-choice">★ 1</span>
+            </label>
+
+            <label>
+              <input type="radio" name="rating" value="2">
+              <span class="star-choice">★ 2</span>
+            </label>
+
+            <label>
+              <input type="radio" name="rating" value="3">
+              <span class="star-choice">★ 3</span>
+            </label>
+
+            <label>
+              <input type="radio" name="rating" value="4">
+              <span class="star-choice">★ 4</span>
+            </label>
+
+            <label>
+              <input type="radio" name="rating" value="5">
+              <span class="star-choice">★ 5</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="menuName">
+            食べたパン・商品名
+          </label>
+
+          <input
+            id="menuName"
+            name="menuName"
+            type="text"
+            maxlength="50"
+            placeholder="例：天然酵母食パン">
+        </div>
+
+        <div class="form-row">
+          <label for="comment">
+            コメント
+            <span class="required">必須</span>
+          </label>
+
+          <textarea
+            id="comment"
+            name="comment"
+            maxlength="500"
+            placeholder="パンの感想や店内の雰囲気などをお聞かせください。"
+            required></textarea>
+        </div>
+
+        <div class="form-row">
+          <label for="photos">
+            写真
+          </label>
+
+          <p class="file-help">
+            最大5枚まで。写真は自動で小さくして送信します。
+          </p>
+
+          <input
+            id="photos"
+            name="photos"
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            multiple>
+
+          <div id="previewList" class="preview-list" aria-live="polite"></div>
+        </div>
+
+        <label class="agree">
+          <input id="agree" type="checkbox" required>
+
+          <span>
+            投稿内容をお店が確認し、店舗サイトに掲載する場合があることに同意します。
+          </span>
+        </label>
+
+        <button id="submitButton" class="submit-button" type="submit">
+          投稿を送信する
+        </button>
+
+        <div class="notice">
+          送信後、すぐには公開されません。
+          お店で内容を確認してから掲載します。
+          個人情報や連絡先などは入力しないでください。
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© おうちcafeパン工房</p>
+      <p>
+        〒353-0004 埼玉県志木市本町2-5-46 やまかく館1F
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const GAS_URL =
+      "https://script.google.com/macros/s/AKfycbzvfcAQDMuk1E50HWGeR1reZxn0drMnLcra0o0VY-nN9hGWCSV0jhSv9IHrdvAgQUzDMw/exec";
+
+    const form = document.getElementById("postForm");
+    const photosInput = document.getElementById("photos");
+    const previewList = document.getElementById("previewList");
+    const message = document.getElementById("message");
+    const submitButton = document.getElementById("submitButton");
+
+    let selectedFiles = [];
+
+    function showMessage(text, type) {
+      message.textContent = text;
+      message.className = "message show " + type;
+
+      message.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+
+    function hideMessage() {
+      message.textContent = "";
+      message.className = "message";
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>'"]/g, function(char) {
+        return {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          "'": "&#39;",
+          '"': "&quot;"
+        }[char];
+      });
+    }
+
+    function renderPreviews() {
+      previewList.innerHTML = "";
+
+      selectedFiles.forEach(function(file, index) {
+        const url = URL.createObjectURL(file);
+        const item = document.createElement("div");
+
+        item.className = "preview-item";
+
+        item.innerHTML =
+          '<span class="preview-number">' +
+          (index + 1) +
+          '</span>' +
+          '<img src="' +
+          escapeHtml(url) +
+          '" alt="選択した写真 ' +
+          (index + 1) +
+          '">';
+
+        previewList.appendChild(item);
+      });
+    }
+
+    photosInput.addEventListener("change", function() {
+      const files = Array.from(photosInput.files || []);
+
+      selectedFiles = files.slice(0, 5);
+
+      if (files.length > 5) {
+        showMessage(
+          "写真は最大5枚までです。最初の5枚を使用します。",
+          "info"
+        );
+      } else {
+        hideMessage();
+      }
+
+      renderPreviews();
+    });
+
+    function compressImage(file) {
+      return new Promise(function(resolve, reject) {
+        const reader = new FileReader();
+
+        reader.onload = function() {
+          const image = new Image();
+
+          image.onload = function() {
+            const maxSize = 1400;
+
+            const scale = Math.min(
+              1,
+              maxSize / Math.max(image.width, image.height)
+            );
+
+            const canvas = document.createElement("canvas");
+
+            canvas.width = Math.max(
+              1,
+              Math.round(image.width * scale)
+            );
+
+            canvas.height = Math.max(
+              1,
+              Math.round(image.height * scale)
+            );
+
+            const context = canvas.getContext("2d");
+
+            context.drawImage(
+              image,
+              0,
+              0,
+              canvas.width,
+              canvas.height
+            );
+
+            resolve(
+              canvas.toDataURL("image/jpeg", 0.82)
+            );
+          };
+
+          image.onerror = reject;
+          image.src = reader.result;
+        };
+
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function sendPost(payload) {
+      const response = await fetch(GAS_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error(
+          result.message || "送信に失敗しました。"
+        );
+      }
+
+      return result;
+    }
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+      hideMessage();
+
+      const nickname =
+        document.getElementById("nickname").value.trim();
+
+      const rating =
+        document.querySelector(
+          'input[name="rating"]:checked'
+        );
+
+      const menuName =
+        document.getElementById("menuName").value.trim();
+
+      const comment =
+        document.getElementById("comment").value.trim();
+
+      if (!nickname || !rating || !comment) {
+        showMessage("必須項目を入力してください。", "error");
+        return;
+      }
+
+      if (selectedFiles.length > 5) {
+        showMessage("写真は最大5枚までです。", "error");
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "送信しています…";
+
+      try {
+        const images = [];
+
+        for (const file of selectedFiles) {
+          images.push(await compressImage(file));
+        }
+
+        await sendPost({
+          mode: "customerPost",
+          nickname: nickname,
+          rating: Number(rating.value),
+          menuName: menuName,
+          comment: comment,
+          images: images
+        });
+
+        form.reset();
+        selectedFiles = [];
+        previewList.innerHTML = "";
+
+        showMessage(
+          "投稿を受け付けました。お店で確認後、公開されます。ありがとうございました。",
+          "success"
+        );
+      } catch (error) {
+        console.error(error);
+
+        showMessage(
+          error.message ||
+          "送信に失敗しました。時間をおいて再度お試しください。",
+          "error"
+        );
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "投稿を送信する";
+      }
+    });
+  </script>
+</body>
+</html>
