@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>お知らせ｜おうちcafeパン工房</title>
+  <meta name="description" content="おうちcafeパン工房からのお知らせです。">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="おうちcafeパン工房のお知らせ">
+  <meta property="og:description" content="おうちcafeパン工房からのお知らせです。">
+  <meta property="og:image" content="https://ichirohns-jpg.github.io/ouchicafe-shop-dx/main.jpg">
+  <meta property="og:url" content="https://ichirohns-jpg.github.io/ouchicafe-shop-dx/share-news.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="icon.jpg">
+
+  <style>
+    :root{
+      --brown:#4b2619;
+      --brown-light:#76513d;
+      --cream:#fffaf1;
+      --line:#eadfd2;
+      --green:#667253;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      color:var(--brown);
+      background:var(--cream);
+      font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      line-height:1.8;
+    }
+
+    img{display:block;max-width:100%}
+    a{color:inherit}
+
+    .wrap{
+      width:min(820px,calc(100% - 32px));
+      margin:auto;
+    }
+
+    header{
+      background:rgba(255,253,248,.97);
+      border-bottom:1px solid var(--line);
+    }
+
+    .header-inner{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      font-weight:900;
+    }
+
+    .brand img{
+      width:46px;
+      height:46px;
+      object-fit:cover;
+      border-radius:50%;
+    }
+
+    .brand span{font-size:clamp(15px,3vw,21px)}
+
+    .back-link{
+      color:var(--brown-light);
+      font-size:14px;
+      text-decoration:none;
+    }
+
+    main{padding:42px 0 70px}
+
+    .card{
+      padding:clamp(20px,5vw,38px);
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:0 10px 28px rgba(73,42,24,.08);
+    }
+
+    .date{
+      margin:0 0 8px;
+      color:var(--brown-light);
+      font-size:14px;
+    }
+
+    h1{
+      margin:0 0 22px;
+      font-size:clamp(28px,6vw,46px);
+      line-height:1.35;
+    }
+
+    .body{
+      white-space:pre-wrap;
+      word-break:break-word;
+    }
+
+    .photo-row{
+      display:flex;
+      gap:10px;
+      overflow-x:auto;
+      margin:24px 0;
+      padding-bottom:8px;
+    }
+
+    .photo-row img{
+      flex:0 0 auto;
+      width:230px;
+      height:230px;
+      object-fit:cover;
+      border-radius:12px;
+    }
+
+    .video-frame{
+      width:100%;
+      aspect-ratio:16 / 9;
+      margin:24px 0;
+      border:0;
+      border-radius:14px;
+      background:#111;
+    }
+
+    .external-link{
+      display:inline-flex;
+      min-height:48px;
+      align-items:center;
+      padding:9px 18px;
+      color:#fff;
+      background:var(--green);
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:800;
+    }
+
+    .share-title{
+      margin:34px 0 12px;
+      font-size:21px;
+    }
+
+    .share-buttons{
+      display:flex;
+      gap:9px;
+      flex-wrap:wrap;
+    }
+
+    .share-buttons button,
+    .share-buttons a{
+      min-height:48px;
+      padding:9px 15px;
+      border:0;
+      border-radius:999px;
+      color:#fff;
+      text-decoration:none;
+      font:inherit;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .line{background:#06c755}
+    .x{background:#111}
+    .facebook{background:#1877f2}
+    .copy{
+      color:var(--brown)!important;
+      background:#eee4d7;
+    }
+
+    .message{
+      color:var(--brown-light);
+      text-align:center;
+    }
+
+    .home-button{
+      display:inline-flex;
+      min-height:50px;
+      align-items:center;
+      justify-content:center;
+      margin-top:28px;
+      padding:10px 22px;
+      color:#fff;
+      background:var(--brown);
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:800;
+    }
+
+    footer{
+      padding:24px 0 42px;
+      color:var(--brown-light);
+      text-align:center;
+      font-size:13px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <img src="icon.jpg" alt="">
+        <span>おうちcafeパン工房</span>
+      </a>
+
+      <a class="back-link" href="index.html">
+        トップへ戻る
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <article class="card" id="content">
+        <p class="message">
+          お知らせを読み込んでいます…
+        </p>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    © おうちcafeパン工房
+  </footer>
+
+  <script>
+    const GAS_URL =
+      "https://script.google.com/macros/s/AKfycbzvfcAQDMuk1E50HWGeR1reZxn0drMnLcra0o0VY-nN9hGWCSV0jhSv9IHrdvAgQUzDMw/exec";
+
+    const SITE_URL =
+      "https://ichirohns-jpg.github.io/ouchicafe-shop-dx/";
+
+    const params =
+      new URLSearchParams(location.search);
+
+    const newsId =
+      params.get("id") || "";
+
+    function $(id){
+      return document.getElementById(id);
+    }
+
+    function escapeHtml(value){
+      return String(value ?? "").replace(
+        /[&<>'"]/g,
+        function(char){
+          return {
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            "'":"&#39;",
+            '"':"&quot;"
+          }[char];
+        }
+      );
+    }
+
+    function safeUrl(value){
+      const url =
+        String(value || "").trim();
+
+      return /^https?:\/\//i.test(url)
+        ? url
+        : "";
+    }
+
+    function youtubeId(value){
+      const text =
+        String(value || "").trim();
+
+      const match =
+        text.match(
+          /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{6,})/i
+        );
+
+      if(match){
+        return match[1];
+      }
+
+      return /^[A-Za-z0-9_-]{6,}$/.test(text)
+        ? text
+        : "";
+    }
+
+    function formatDate(value){
+      if(!value){
+        return "";
+      }
+
+      const date =
+        new Date(value);
+
+      if(Number.isNaN(date.getTime())){
+        return String(value);
+      }
+
+      return new Intl.DateTimeFormat(
+        "ja-JP",
+        {
+          year:"numeric",
+          month:"long",
+          day:"numeric"
+        }
+      ).format(date);
+    }
+
+    async function loadNews(){
+      const response =
+        await fetch(
+          GAS_URL + "?mode=publicNews",
+          {
+            cache:"no-store"
+          }
+        );
+
+      const result =
+        await response.json();
+
+      if(!result.success){
+        throw new Error(
+          result.message ||
+          "お知らせを取得できませんでした。"
+        );
+      }
+
+      const news =
+        Array.isArray(result.news)
+          ? result.news
+          : [];
+
+      const item =
+        news.find(function(newsItem){
+          return String(
+            newsItem.id || ""
+          ) === newsId;
+        });
+
+      if(!item){
+        throw new Error(
+          "お知らせが見つかりませんでした。"
+        );
+      }
+
+      render(item);
+    }
+
+    function render(item){
+      const images =
+        Array.isArray(item.images)
+          ? item.images
+              .map(safeUrl)
+              .filter(Boolean)
+              .slice(0,5)
+          : [];
+
+      const video =
+        youtubeId(item.videoUrl);
+
+      const shareUrl =
+        SITE_URL +
+        "share-news.html?id=" +
+        encodeURIComponent(
+          item.id || ""
+        );
+
+      const title =
+        item.title ||
+        "おうちcafeパン工房のお知らせ";
+
+      const text =
+        title +
+        "｜おうちcafeパン工房\n" +
+        shareUrl;
+
+      const photos =
+        images.length
+          ? `
+            <div class="photo-row">
+              ${images.map(function(url,index){
+                return `
+                  <img
+                    src="${escapeHtml(url)}"
+                    alt="お知らせ画像 ${index + 1}"
+                    loading="lazy"
+                  >
+                `;
+              }).join("")}
+            </div>
+          `
+          : "";
+
+      const videoHtml =
+        video
+          ? `
+            <iframe
+              class="video-frame"
+              src="https://www.youtube.com/embed/${encodeURIComponent(video)}"
+              title="YouTube動画"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          `
+          : "";
+
+      const external =
+        safeUrl(item.externalUrl);
+
+      $("content").innerHTML = `
+        <p class="date">
+          ${escapeHtml(formatDate(item.date))}
+        </p>
+
+        <h1>
+          ${escapeHtml(title)}
+        </h1>
+
+        <div class="body">
+          ${escapeHtml(item.body || "")}
+        </div>
+
+        ${photos}
+        ${videoHtml}
+
+        ${
+          external
+            ? `
+              <a
+                class="external-link"
+                href="${escapeHtml(external)}"
+                target="_blank"
+                rel="noopener"
+              >
+                詳しく見る ↗
+              </a>
+            `
+            : ""
+        }
+
+        <h2 class="share-title">
+          この記事を共有する
+        </h2>
+
+        <div class="share-buttons">
+          <a
+            class="line"
+            href="https://line.me/R/msg/text/?${encodeURIComponent(text)}"
+            target="_blank"
+            rel="noopener"
+          >
+            LINEで共有
+          </a>
+
+          <a
+            class="x"
+            href="https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(shareUrl)}"
+            target="_blank"
+            rel="noopener"
+          >
+            Xで共有
+          </a>
+
+          <a
+            class="facebook"
+            href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}"
+            target="_blank"
+            rel="noopener"
+          >
+            Facebookで共有
+          </a>
+
+          <button
+            class="copy"
+            id="copyButton"
+            type="button"
+          >
+            リンクをコピー
+          </button>
+        </div>
+
+        <p
+          class="message"
+          id="copyMessage"
+          aria-live="polite"
+        ></p>
+
+        <a
+          class="home-button"
+          href="index.html"
+        >
+          おうちcafeパン工房トップへ
+        </a>
+      `;
+
+      document.title =
+        title +
+        "｜おうちcafeパン工房";
+
+      $("copyButton").addEventListener(
+        "click",
+        async function(){
+          try{
+            await navigator.clipboard.writeText(
+              shareUrl
+            );
+
+            $("copyMessage").textContent =
+              "共有リンクをコピーしました。";
+          }catch(error){
+            window.prompt(
+              "リンクをコピーしてください。",
+              shareUrl
+            );
+          }
+        }
+      );
+    }
+
+    if(!newsId){
+      $("content").innerHTML = `
+        <p class="message">
+          お知らせIDが指定されていません。
+        </p>
+
+        <a
+          class="home-button"
+          href="index.html"
+        >
+          トップへ戻る
+        </a>
+      `;
+    }else{
+      loadNews().catch(function(error){
+        $("content").innerHTML = `
+          <p class="message">
+            ${escapeHtml(
+              error.message ||
+              "読み込めませんでした。"
+            )}
+            <br>
+
+            <a
+              class="home-button"
+              href="index.html"
+            >
+              トップへ戻る
+            </a>
+          </p>
+        `;
+      });
+    }
+  </script>
+</body>
+</html>
