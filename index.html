@@ -3,14 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>おうちcafeパン工房｜志木市の天然酵母パン</title>
-  <meta name="description" content="埼玉県志木市の古民家風店舗。国産小麦とホシノ天然酵母を使った、安心して食べられるパンをお届けします。店内イートイン、いろはベースを併設。">
+
+  <meta
+    name="description"
+    content="埼玉県志木市の古民家風店舗。国産小麦とホシノ天然酵母を使った、安心して食べられるパンをお届けします。店内イートイン、いろはベースを併設。"
+  >
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="おうちcafeパン工房｜志木市の天然酵母パン">
   <meta property="og:description" content="蔵造りの趣ある店舗で、焼きたてパンとドリンクをどうぞ。">
-  <meta property="og:image" content="https://ichirohns-jpg.github.io/ouchicafe-shop-dx/main-banner.jpg">
-  <meta property="og:url" content="https://ichirohns-jpg.github.io/ouchicafe-shop-dx/">
+  <meta
+    property="og:image"
+    content="https://ichirohns-jpg.github.io/ouchicafe-shop-dx/main-banner.jpg?ogp=20260715-2"
+  >
+  <meta
+    property="og:url"
+    content="https://ichirohns-jpg.github.io/ouchicafe-shop-dx/"
+  >
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="icon.jpg">
@@ -1000,6 +1011,9 @@
     const SITE_URL =
       "https://ichirohns-jpg.github.io/ouchicafe-shop-dx/";
 
+    const SHARE_VERSION =
+      "20260715-2";
+
     function imageSrc(value, fallback) {
       const src =
         String(value || "").trim();
@@ -1133,12 +1147,11 @@
             );
 
           const shareUrl =
-            item.shareUrl ||
-            (
-              SITE_URL +
-              "share-news.html?id=" +
-              id
-            );
+            SITE_URL +
+            "share-news.html?id=" +
+            id +
+            "&v=" +
+            SHARE_VERSION;
 
           const shareTitle =
             item.title ||
