@@ -672,7 +672,11 @@
         const images = [];
 
         for (const file of selectedFiles) {
-          images.push(await compressImage(file));
+          images.push({
+            data: await compressImage(file),
+            name: file.name,
+            mimeType: "image/jpeg"
+          });
         }
 
         await sendPost({
