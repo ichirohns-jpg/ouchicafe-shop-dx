@@ -202,19 +202,23 @@
       gap: 10px;
       overflow-x: auto;
       margin-top: 14px;
-      padding-bottom: 4px;
+      padding: 2px 2px 12px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-inline: contain;
     }
 
     .preview-item {
       position: relative;
-      flex: 0 0 92px;
+      flex: 0 0 190px;
+      scroll-snap-align: start;
     }
 
     .preview-item img {
-      width: 92px;
-      height: 92px;
+      width: 190px;
+      height: 190px;
       object-fit: cover;
-      border-radius: 10px;
+      border-radius: 14px;
       border: 1px solid var(--line);
     }
 
@@ -489,7 +493,7 @@
 
   <script>
     const GAS_URL =
-      "https://script.google.com/macros/s/AKfycbzvfcAQDMuk1E50HWGeR1reZxn0drMnLcra0o0VY-nN9hGWCSV0jhSv9IHrdvAgQUzDMw/exec";
+      "https://script.google.com/macros/s/AKfycbzGf0NYPum3d0bPGoVyd6GVY3dWSbAf9w4mzdvdF0uB8OXTMxqAmYJ7BvOnHPFD1k-7pw/exec";
 
     const form = document.getElementById("postForm");
     const photosInput = document.getElementById("photos");
