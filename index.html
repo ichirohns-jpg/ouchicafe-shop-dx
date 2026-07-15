@@ -132,12 +132,12 @@
     }
 
     .hero {
-      min-height: min(690px, 78vh);
-      display: grid;
-      place-items: center;
+      min-height: min(760px, calc(100svh - 72px));
+      display: flex;
+      align-items: flex-end;
       position: relative;
       overflow: hidden;
-      background: #3b241b;
+      background: var(--brown);
     }
 
     .hero::before {
@@ -145,10 +145,12 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        90deg,
-        rgba(45, 24, 14, .67),
-        rgba(45, 24, 14, .18) 70%,
-        rgba(45, 24, 14, .34)
+        180deg,
+        rgba(75, 38, 25, .04) 0%,
+        rgba(75, 38, 25, .10) 28%,
+        rgba(75, 38, 25, .86) 56%,
+        var(--brown) 70%,
+        var(--brown) 100%
       );
       z-index: 1;
     }
@@ -167,28 +169,30 @@
       position: relative;
       z-index: 2;
       color: #fff;
-      padding: 92px 0;
+      padding: 280px 0 52px;
     }
 
     .eyebrow {
       margin: 0 0 10px;
       font-weight: 700;
-      letter-spacing: .16em;
-      font-size: 14px;
+      letter-spacing: .12em;
+      font-size: 15px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(35px, 6vw, 72px);
+      max-width: 800px;
+      font-size: clamp(42px, 7vw, 82px);
       line-height: 1.2;
-      letter-spacing: .04em;
+      letter-spacing: .02em;
       text-shadow: 0 3px 18px rgba(0,0,0,.25);
     }
 
     .hero-lead {
-      max-width: 650px;
-      margin: 22px 0 28px;
-      font-size: clamp(17px, 2.2vw, 24px);
+      max-width: 620px;
+      margin: 20px 0 28px;
+      font-size: clamp(19px, 2.4vw, 27px);
+      line-height: 1.55;
       font-weight: 700;
     }
 
@@ -521,6 +525,18 @@
     @media (max-width: 760px) {
       .header-inner { min-height: 64px; }
 
+      .hero {
+        min-height: calc(100svh - 64px);
+      }
+
+      .hero-content {
+        padding: 250px 0 38px;
+      }
+
+      h1 {
+        font-size: clamp(42px, 11vw, 60px);
+      }
+
       nav a:not(.nav-button) {
         display: none;
       }
@@ -589,16 +605,16 @@
       <img src="main-banner.jpg" alt="おうちcafeパン工房の店舗外観">
 
       <div class="hero-content">
-        <p class="eyebrow">SHIKI · SAITAMA</p>
-        <h1>安心して食べられる<br>やさしいパン。</h1>
+        <p class="eyebrow">おうちcafeパン工房 · SHIKI</p>
+        <h1>志木の街に、<br>焼きたての香り。</h1>
 
         <p class="hero-lead">
-          蔵造りの趣ある店舗で、焼きたてパンとドリンクを。
-          店内でゆっくりお召し上がりいただけます。
+          パンを買うだけじゃない。<br>
+          人がつながるパン工房。
         </p>
 
         <div class="hero-buttons">
-          <a class="button" href="#menu">おすすめを見る</a>
+          <a class="button" href="#menu">おすすめメニュー</a>
           <a class="button light" href="#access">店舗情報を見る</a>
         </div>
       </div>
