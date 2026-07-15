@@ -7,8 +7,6 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>管理者画面｜おうちcafeパン工房</title>
   <link rel="icon" href="icon.jpg">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#4b2619">
 
   <style>
     :root {
@@ -29,29 +27,32 @@
     }
 
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       color: var(--brown-dark);
-      background: radial-gradient(circle at top,#fffdf8 0,var(--cream) 48%,#f1e3d3 100%);
-      font-family: "Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      background:
+        radial-gradient(circle at top, #fffdf8 0, var(--cream) 48%, #f1e3d3 100%);
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
       font-size: 18px;
       line-height: 1.7;
       -webkit-text-size-adjust: 100%;
     }
 
-    button,input,textarea,select { font: inherit; }
+    button, input, textarea, select { font: inherit; }
+    button, a, label { -webkit-tap-highlight-color: transparent; }
     button { cursor: pointer; }
     img { display: block; max-width: 100%; }
     a { color: inherit; }
 
     .page {
-      width: min(100%,860px);
+      width: min(100%, 860px);
       min-height: 100vh;
       margin: 0 auto;
-      background: rgba(255,253,248,.97);
-      box-shadow: 0 0 32px rgba(56,27,11,.12);
+      background: rgba(255, 253, 248, .97);
+      box-shadow: 0 0 32px rgba(56, 27, 11, .12);
     }
 
     header {
@@ -60,7 +61,7 @@
       z-index: 50;
       padding: calc(10px + env(safe-area-inset-top)) 16px 10px;
       color: #fff;
-      background: rgba(75,38,25,.98);
+      background: rgba(75, 38, 25, .98);
       border-bottom: 3px solid #d7a84b;
       backdrop-filter: blur(10px);
     }
@@ -90,7 +91,7 @@
     }
 
     .brand span {
-      font-size: clamp(15px,3vw,22px);
+      font-size: clamp(15px, 3vw, 22px);
       line-height: 1.25;
     }
 
@@ -109,7 +110,7 @@
 
     .card {
       margin: 0 0 20px;
-      padding: clamp(18px,4vw,30px);
+      padding: clamp(18px, 4vw, 30px);
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: 20px;
@@ -121,20 +122,21 @@
       margin: 28px auto 20px;
     }
 
-    h1,h2,h3,p { margin-top: 0; }
+    h1, h2, h3, p { margin-top: 0; }
 
     .page-title {
       margin-bottom: 8px;
       color: var(--brown);
-      font-size: clamp(28px,6vw,44px);
+      font-size: clamp(28px, 6vw, 44px);
       line-height: 1.3;
     }
 
-    .lead,.help { color: var(--gray); }
+    .lead, .help { color: var(--gray); }
     .lead { margin-bottom: 24px; }
     .help { margin: 7px 0 0; font-size: 13px; }
 
     .field { margin-bottom: 20px; }
+    .field:last-child { margin-bottom: 0; }
 
     .label {
       display: block;
@@ -143,7 +145,7 @@
       font-weight: 900;
     }
 
-    .required,.optional {
+    .required, .optional {
       display: inline-block;
       margin-left: 6px;
       padding: 1px 8px;
@@ -181,7 +183,7 @@
     textarea:focus,
     select:focus {
       border-color: var(--green);
-      box-shadow: 0 0 0 4px rgba(102,114,83,.13);
+      box-shadow: 0 0 0 4px rgba(102, 114, 83, .13);
     }
 
     .primary-button,
@@ -197,6 +199,7 @@
 
     .primary-button { width: 100%; }
     .button.green { background: var(--green); }
+    .button.blue { background: var(--blue); }
     .button.red { background: var(--red); }
 
     .button.light {
@@ -238,7 +241,7 @@
 
     .toolbar h2 {
       margin: 0;
-      font-size: clamp(24px,5vw,34px);
+      font-size: clamp(24px, 5vw, 34px);
     }
 
     .toolbar-buttons {
@@ -255,7 +258,7 @@
 
     .tabs {
       display: grid;
-      grid-template-columns: repeat(2,1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 8px;
       margin-bottom: 18px;
     }
@@ -298,7 +301,7 @@
 
     .count-grid {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 8px;
       margin-bottom: 18px;
     }
@@ -336,7 +339,7 @@
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 17px;
-      box-shadow: 0 6px 18px rgba(73,42,24,.07);
+      box-shadow: 0 6px 18px rgba(73, 42, 24, .07);
     }
 
     .item-head {
@@ -397,6 +400,7 @@
       overflow-x: auto;
       margin: 14px 0;
       padding: 2px 2px 8px;
+      overscroll-behavior-inline: contain;
     }
 
     .photo-box {
@@ -425,18 +429,20 @@
       height: 30px;
       padding: 0;
       color: #fff;
-      background: rgba(75,38,25,.88);
+      background: rgba(75, 38, 25, .88);
       border: 0;
       border-radius: 50%;
       font-size: 22px;
       line-height: 30px;
     }
 
-    .notes-input { min-height: 90px; }
+    .notes-input {
+      min-height: 90px;
+    }
 
     .action-row {
       display: grid;
-      grid-template-columns: repeat(2,1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 8px;
       margin-top: 14px;
     }
@@ -452,7 +458,6 @@
     }
 
     .action-button.publish { background: var(--green); }
-
     .action-button.pending {
       color: var(--brown-dark);
       background: #f0c36b;
@@ -470,8 +475,14 @@
       opacity: .55;
     }
 
-    .news-form { margin-bottom: 24px; }
-    .news-form h3 { margin-bottom: 16px; font-size: 24px; }
+    .news-form {
+      margin-bottom: 24px;
+    }
+
+    .news-form h3 {
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
 
     .form-actions {
       display: flex;
@@ -482,6 +493,10 @@
 
     .form-actions .button {
       flex: 1 1 180px;
+    }
+
+    .news-card .item-title {
+      margin-bottom: 7px;
     }
 
     .news-links {
@@ -513,15 +528,22 @@
       font-size: 13px;
     }
 
-    @media (max-width:560px) {
+    @media (max-width: 560px) {
       body { font-size: 16px; }
       main { padding-inline: 10px; }
       header { padding-inline: 10px; }
       .brand span { font-size: 15px; }
-      .back-link { padding: 7px 9px; font-size: 12px; }
-      .card { padding: 16px 13px; }
+      .back-link {
+        padding: 7px 9px;
+        font-size: 12px;
+      }
+      .card {
+        padding: 16px 13px;
+        border-radius: 16px;
+      }
       .item-card { padding: 14px; }
       .item-title { font-size: 21px; }
+      .action-row { grid-template-columns: 1fr 1fr; }
       .photo-box {
         flex-basis: 112px;
         height: 112px;
@@ -538,44 +560,23 @@
           <img src="icon.jpg" alt="">
           <span>おうちcafeパン工房<br>管理者画面</span>
         </a>
-
-        <a class="back-link" href="index.html">
-          公開ページ
-        </a>
+        <a class="back-link" href="index.html">公開ページ</a>
       </div>
     </header>
 
     <main>
       <section class="card login-card" id="loginCard">
         <h1 class="page-title">管理者ログイン</h1>
-
-        <p class="lead">
-          お客様の声とお知らせを管理します。
-        </p>
+        <p class="lead">お客様の声とお知らせを管理します。</p>
 
         <div class="status-message" id="loginStatus"></div>
 
         <form id="loginForm">
           <div class="field">
-            <label class="label" for="adminPassword">
-              管理者パスワード
-            </label>
-
-            <input
-              id="adminPassword"
-              type="password"
-              autocomplete="current-password"
-              required
-            >
+            <label class="label" for="adminPassword">管理者パスワード</label>
+            <input id="adminPassword" type="password" autocomplete="current-password" required>
           </div>
-
-          <button
-            class="primary-button"
-            id="loginButton"
-            type="submit"
-          >
-            管理者画面を開く
-          </button>
+          <button class="primary-button" id="loginButton" type="submit">管理者画面を開く</button>
         </form>
       </section>
 
@@ -583,44 +584,17 @@
         <div class="card">
           <div class="toolbar">
             <h2>管理メニュー</h2>
-
             <div class="toolbar-buttons">
-              <button
-                class="button light"
-                id="refreshButton"
-                type="button"
-              >
-                再読み込み
-              </button>
-
-              <button
-                class="button red"
-                id="logoutButton"
-                type="button"
-              >
-                ログアウト
-              </button>
+              <button class="button light" id="refreshButton" type="button">再読み込み</button>
+              <button class="button red" id="logoutButton" type="button">ログアウト</button>
             </div>
           </div>
 
           <div class="status-message" id="adminStatus"></div>
 
           <div class="tabs">
-            <button
-              class="tab-button active"
-              data-tab="posts"
-              type="button"
-            >
-              お客様の声
-            </button>
-
-            <button
-              class="tab-button"
-              data-tab="news"
-              type="button"
-            >
-              お知らせ
-            </button>
+            <button class="tab-button active" data-tab="posts" type="button">お客様の声</button>
+            <button class="tab-button" data-tab="news" type="button">お知らせ</button>
           </div>
 
           <section class="panel active" id="postsPanel">
@@ -629,12 +603,10 @@
                 <strong id="pendingCount">0</strong>
                 <span>確認待ち</span>
               </div>
-
               <div class="count-box public">
                 <strong id="publicCount">0</strong>
                 <span>公開</span>
               </div>
-
               <div class="count-box hidden">
                 <strong id="hiddenCount">0</strong>
                 <span>非公開</span>
@@ -642,37 +614,10 @@
             </div>
 
             <div class="filter-row">
-              <button
-                class="filter-button active"
-                data-filter="確認待ち"
-                type="button"
-              >
-                確認待ち
-              </button>
-
-              <button
-                class="filter-button"
-                data-filter="公開"
-                type="button"
-              >
-                公開
-              </button>
-
-              <button
-                class="filter-button"
-                data-filter="非公開"
-                type="button"
-              >
-                非公開
-              </button>
-
-              <button
-                class="filter-button"
-                data-filter="すべて"
-                type="button"
-              >
-                すべて
-              </button>
+              <button class="filter-button active" data-filter="確認待ち" type="button">確認待ち</button>
+              <button class="filter-button" data-filter="公開" type="button">公開</button>
+              <button class="filter-button" data-filter="非公開" type="button">非公開</button>
+              <button class="filter-button" data-filter="すべて" type="button">すべて</button>
             </div>
 
             <div class="list" id="postList"></div>
@@ -686,94 +631,51 @@
 
               <div class="field">
                 <label class="label" for="newsDate">
-                  投稿日
-                  <span class="required">必須</span>
+                  投稿日<span class="required">必須</span>
                 </label>
-
-                <input
-                  id="newsDate"
-                  type="date"
-                  required
-                >
+                <input id="newsDate" type="date" required>
               </div>
 
               <div class="field">
                 <label class="label" for="newsTitle">
-                  タイトル
-                  <span class="required">必須</span>
+                  タイトル<span class="required">必須</span>
                 </label>
-
-                <input
-                  id="newsTitle"
-                  type="text"
-                  maxlength="120"
-                  required
-                >
+                <input id="newsTitle" type="text" maxlength="120" required>
               </div>
 
               <div class="field">
                 <label class="label" for="newsBody">
-                  本文
-                  <span class="required">必須</span>
+                  本文<span class="required">必須</span>
                 </label>
-
-                <textarea
-                  id="newsBody"
-                  maxlength="5000"
-                  required
-                ></textarea>
+                <textarea id="newsBody" maxlength="5000" required></textarea>
               </div>
 
               <div class="field">
                 <label class="label" for="newsPhotoInput">
-                  画像
-                  <span class="optional">最大5枚</span>
+                  画像<span class="optional">最大5枚</span>
                 </label>
-
-                <input
-                  id="newsPhotoInput"
-                  type="file"
-                  accept="image/*"
-                  multiple
-                >
-
-                <p class="help">
-                  既存画像は右上の×で削除できます。写真は横に並びます。
-                </p>
-
-                <p class="help" id="newsPhotoCount">
-                  0 / 5枚
-                </p>
-
-                <div
-                  class="photo-row"
-                  id="newsPhotoPreview"
-                ></div>
+                <input id="newsPhotoInput" type="file" accept="image/*" multiple>
+                <p class="help">既存画像は右上の×で削除できます。写真は横に並びます。</p>
+                <p class="help" id="newsPhotoCount">0 / 5枚</p>
+                <div class="photo-row" id="newsPhotoPreview"></div>
               </div>
 
               <div class="field">
                 <label class="label" for="newsVideoUrl">
-                  YouTube URL
-                  <span class="optional">任意</span>
+                  YouTube URL<span class="optional">任意</span>
                 </label>
-
                 <input
                   id="newsVideoUrl"
                   type="url"
                   placeholder="https://www.youtube.com/watch?v= または shorts URL"
                 >
-
-                <p class="help">
-                  登録した動画は公開ページ内で再生されます。
-                </p>
+                <p class="help">登録した動画は公開ページ内で再生されます。</p>
               </div>
 
               <div class="field">
                 <label class="label" for="newsExternalUrl">
-                  外部リンク
-                  <span class="optional">任意</span>
+                  外部リンク<span class="optional">任意</span>
                 </label>
-
                 <input
                   id="newsExternalUrl"
                   type="url"
@@ -782,10 +684,7 @@
               </div>
 
               <div class="field">
-                <label class="label" for="newsStatus">
-                  掲載状態
-                </label>
-
+                <label class="label" for="newsStatus">掲載状態</label>
                 <select id="newsStatus">
                   <option value="下書き">下書き</option>
                   <option value="公開">公開</option>
@@ -794,43 +693,28 @@
               </div>
 
               <div class="form-actions">
-                <button
-                  class="button green"
-                  id="newsSaveButton"
-                  type="submit"
-                >
+                <button class="button green" id="newsSaveButton" type="submit">
                   お知らせを保存
                 </button>
-
-                <button
-                  class="button light"
-                  id="newsCancelButton"
-                  type="button"
-                >
+                <button class="button light" id="newsCancelButton" type="button">
                   入力取消
                 </button>
               </div>
             </form>
 
             <h3>お知らせ一覧</h3>
-
-            <div
-              class="list"
-              id="newsList"
-            ></div>
+            <div class="list" id="newsList"></div>
           </section>
         </div>
       </section>
     </main>
 
-    <footer>
-      © おうちcafeパン工房｜管理者専用
-    </footer>
+    <footer>© おうちcafeパン工房｜管理者専用</footer>
   </div>
 
   <script>
     const GAS_URL =
-      "https://script.google.com/macros/s/AKfycbzvfcAQDMuk1E50HWGeR1reZxn0drMnLcra0o0VY-nN9hGWCSV0jhSv9IHrdvAgQUzDMw/exec";
+      "https://script.google.com/macros/s/AKfycbzGf0NYPum3d0bPGoVyd6GVY3dWSbAf9w4mzdvdF0uB8OXTMxqAmYJ7BvOnHPFD1k-7pw/exec";
 
     const MAX_PHOTOS = 5;
     const MAX_FILE_SIZE = 20 * 1024 * 1024;
@@ -838,182 +722,84 @@
     const JPEG_QUALITY = 0.78;
     const PASSWORD_KEY = "ouchicafeAdminPassword";
 
-    let adminPassword =
-      sessionStorage.getItem(PASSWORD_KEY) || "";
-
+    let adminPassword = sessionStorage.getItem(PASSWORD_KEY) || "";
     let posts = [];
     let newsItems = [];
     let currentFilter = "確認待ち";
     let existingNewsImages = [];
     let newNewsFiles = [];
 
-    const $ = (id) =>
-      document.getElementById(id);
+    const $ = (id) => document.getElementById(id);
 
-    const loginCard =
-      $("loginCard");
-
-    const loginForm =
-      $("loginForm");
-
-    const passwordInput =
-      $("adminPassword");
-
-    const loginButton =
-      $("loginButton");
-
-    const loginStatus =
-      $("loginStatus");
-
-    const adminPanel =
-      $("adminPanel");
-
-    const adminStatus =
-      $("adminStatus");
-
-    const postList =
-      $("postList");
-
-    const newsList =
-      $("newsList");
-
-    const refreshButton =
-      $("refreshButton");
-
-    const logoutButton =
-      $("logoutButton");
-
-    const newsForm =
-      $("newsForm");
-
-    const newsPhotoInput =
-      $("newsPhotoInput");
-
-    const newsPhotoPreview =
-      $("newsPhotoPreview");
-
-    const newsPhotoCount =
-      $("newsPhotoCount");
-
-    const newsSaveButton =
-      $("newsSaveButton");
-
-    const newsCancelButton =
-      $("newsCancelButton");
+    const loginCard = $("loginCard");
+    const loginForm = $("loginForm");
+    const passwordInput = $("adminPassword");
+    const loginButton = $("loginButton");
+    const loginStatus = $("loginStatus");
+    const adminPanel = $("adminPanel");
+    const adminStatus = $("adminStatus");
+    const postList = $("postList");
+    const newsList = $("newsList");
+    const refreshButton = $("refreshButton");
+    const logoutButton = $("logoutButton");
+    const newsForm = $("newsForm");
+    const newsPhotoInput = $("newsPhotoInput");
+    const newsPhotoPreview = $("newsPhotoPreview");
+    const newsPhotoCount = $("newsPhotoCount");
+    const newsSaveButton = $("newsSaveButton");
+    const newsCancelButton = $("newsCancelButton");
 
     if (adminPassword) {
-      passwordInput.value =
-        adminPassword;
+      passwordInput.value = adminPassword;
     }
 
     setToday();
     renderNewsPhotoPreview();
 
-    loginForm.addEventListener(
-      "submit",
-      handleLogin
-    );
+    loginForm.addEventListener("submit", handleLogin);
+    refreshButton.addEventListener("click", () => loadAllData(false));
+    logoutButton.addEventListener("click", logout);
+    newsForm.addEventListener("submit", handleNewsSave);
+    newsCancelButton.addEventListener("click", resetNewsForm);
+    newsPhotoInput.addEventListener("change", handleNewsPhotoSelection);
+    postList.addEventListener("click", handlePostAction);
+    newsList.addEventListener("click", handleNewsAction);
+    newsPhotoPreview.addEventListener("click", handlePreviewRemove);
 
-    refreshButton.addEventListener(
-      "click",
-      () => loadAllData(false)
-    );
+    document.querySelectorAll(".tab-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".tab-button").forEach((item) => {
+          item.classList.toggle("active", item === button);
+        });
 
-    logoutButton.addEventListener(
-      "click",
-      logout
-    );
+        $("postsPanel").classList.toggle(
+          "active",
+          button.dataset.tab === "posts"
+        );
 
-    newsForm.addEventListener(
-      "submit",
-      handleNewsSave
-    );
-
-    newsCancelButton.addEventListener(
-      "click",
-      resetNewsForm
-    );
-
-    newsPhotoInput.addEventListener(
-      "change",
-      handleNewsPhotoSelection
-    );
-
-    postList.addEventListener(
-      "click",
-      handlePostAction
-    );
-
-    newsList.addEventListener(
-      "click",
-      handleNewsAction
-    );
-
-    newsPhotoPreview.addEventListener(
-      "click",
-      handlePreviewRemove
-    );
-
-    document
-      .querySelectorAll(".tab-button")
-      .forEach((button) => {
-        button.addEventListener(
-          "click",
-          () => {
-            document
-              .querySelectorAll(".tab-button")
-              .forEach((item) => {
-                item.classList.toggle(
-                  "active",
-                  item === button
-                );
-              });
-
-            $("postsPanel")
-              .classList
-              .toggle(
-                "active",
-                button.dataset.tab === "posts"
-              );
-
-            $("newsPanel")
-              .classList
-              .toggle(
-                "active",
-                button.dataset.tab === "news"
-              );
-          }
+        $("newsPanel").classList.toggle(
+          "active",
+          button.dataset.tab === "news"
         );
       });
+    });
 
-    document
-      .querySelectorAll(".filter-button")
-      .forEach((button) => {
-        button.addEventListener(
-          "click",
-          () => {
-            currentFilter =
-              button.dataset.filter;
+    document.querySelectorAll(".filter-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        currentFilter = button.dataset.filter;
 
-            document
-              .querySelectorAll(".filter-button")
-              .forEach((item) => {
-                item.classList.toggle(
-                  "active",
-                  item === button
-                );
-              });
+        document.querySelectorAll(".filter-button").forEach((item) => {
+          item.classList.toggle("active", item === button);
+        });
 
-            renderPosts();
-          }
-        );
+        renderPosts();
       });
+    });
 
     async function handleLogin(event) {
       event.preventDefault();
 
-      const password =
-        passwordInput.value.trim();
+      const password = passwordInput.value.trim();
 
       if (!password) {
         showMessage(
@@ -1021,7 +807,6 @@
           "管理者パスワードを入力してください。",
           "error"
         );
-
         return;
       }
 
@@ -1033,51 +818,37 @@
       setLoading(true);
 
       showMessage(
-        isLogin
-          ? loginStatus
-          : adminStatus,
+        isLogin ? loginStatus : adminStatus,
         "データを読み込んでいます…",
         "info"
       );
 
       try {
-        const results =
-          await Promise.all([
-            apiRequest({
-              mode: "adminList",
-              adminPassword
-            }),
+        const results = await Promise.all([
+          apiRequest({
+            mode: "adminList",
+            adminPassword
+          }),
+          apiRequest({
+            mode: "adminNewsList",
+            adminPassword
+          })
+        ]);
 
-            apiRequest({
-              mode: "adminNewsList",
-              adminPassword
-            })
-          ]);
+        posts = Array.isArray(results[0].posts)
+          ? results[0].posts.map(normalizePost)
+          : [];
 
-        posts =
-          Array.isArray(results[0].posts)
-            ? results[0].posts.map(normalizePost)
-            : [];
+        newsItems = Array.isArray(results[1].news)
+          ? results[1].news.map(normalizeNews)
+          : [];
 
-        newsItems =
-          Array.isArray(results[1].news)
-            ? results[1].news.map(normalizeNews)
-            : [];
+        sessionStorage.setItem(PASSWORD_KEY, adminPassword);
 
-        sessionStorage.setItem(
-          PASSWORD_KEY,
-          adminPassword
-        );
-
-        loginCard.style.display =
-          "none";
-
-        adminPanel.classList.add(
-          "show"
-        );
+        loginCard.style.display = "none";
+        adminPanel.classList.add("show");
 
         clearMessage(loginStatus);
-
         showMessage(
           adminStatus,
           "最新データを読み込みました。",
@@ -1087,64 +858,46 @@
         updateCounts();
         renderPosts();
         renderNews();
-
       } catch (error) {
         showMessage(
-          isLogin
-            ? loginStatus
-            : adminStatus,
+          isLogin ? loginStatus : adminStatus,
           getErrorMessage(error),
           "error"
         );
-
       } finally {
         setLoading(false);
       }
     }
 
     async function apiRequest(data) {
-      const response =
-        await fetch(
-          GAS_URL,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type":
-                "text/plain;charset=utf-8"
-            },
-            body: JSON.stringify(data),
-            redirect: "follow"
-          }
-        );
+      const response = await fetch(GAS_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(data),
+        redirect: "follow"
+      });
 
       if (!response.ok) {
-        throw new Error(
-          "通信エラーが発生しました。"
-        );
+        throw new Error("通信エラーが発生しました。");
       }
 
-      const responseText =
-        await response.text();
+      const responseText = await response.text();
 
       let result;
 
       try {
-        result =
-          JSON.parse(responseText);
-
+        result = JSON.parse(responseText);
       } catch (error) {
         throw new Error(
           "サーバーから正しい返答を受け取れませんでした。"
         );
       }
 
-      if (
-        !result ||
-        result.success !== true
-      ) {
+      if (!result || result.success !== true) {
         throw new Error(
-          result &&
-          result.message
+          result && result.message
             ? result.message
             : "処理に失敗しました。"
         );
@@ -1155,118 +908,46 @@
 
     function normalizePost(item) {
       return {
-        id: String(
-          item.id ||
-          item.postId ||
-          ""
-        ),
-
-        date: String(
-          item.date ||
-          item.postDate ||
-          ""
-        ),
-
+        id: String(item.id || item.postId || ""),
+        date: String(item.date || item.postDate || ""),
         nickname: String(
-          item.nickname ||
-          item.name ||
-          "名前なし"
+          item.nickname || item.name || "名前なし"
         ),
-
         rating: Math.max(
           0,
-          Math.min(
-            5,
-            Number(item.rating) || 0
-          )
+          Math.min(5, Number(item.rating) || 0)
         ),
-
         menuName: String(
-          item.menuName ||
-          item.productName ||
-          ""
+          item.menuName || item.productName || ""
         ),
-
-        comment: String(
-          item.comment ||
-          ""
-        ),
-
-        images: normalizeImages(
-          item.images ||
-          item.photos
-        ),
-
+        comment: String(item.comment || ""),
+        images: normalizeImages(item.images || item.photos),
         status: normalizePostStatus(
-          item.status ||
-          item.publicStatus
+          item.status || item.publicStatus
         ),
-
-        approvedAt: String(
-          item.approvedAt ||
-          ""
-        ),
-
-        notes: String(
-          item.notes ||
-          item.memo ||
-          ""
-        )
+        approvedAt: String(item.approvedAt || ""),
+        notes: String(item.notes || item.memo || "")
       };
     }
 
     function normalizeNews(item) {
       return {
-        id: String(
-          item.id ||
-          item.newsId ||
-          ""
-        ),
-
-        date: String(
-          item.date ||
-          item.postDate ||
-          ""
-        ),
-
-        title: String(
-          item.title ||
-          ""
-        ),
-
-        body: String(
-          item.body ||
-          ""
-        ),
-
-        images: normalizeImages(
-          item.images
-        ),
-
+        id: String(item.id || item.newsId || ""),
+        date: String(item.date || item.postDate || ""),
+        title: String(item.title || ""),
+        body: String(item.body || ""),
+        images: normalizeImages(item.images),
         videoUrl: safeUrl(
-          item.videoUrl ||
-          item.youtubeUrl
+          item.videoUrl || item.youtubeUrl
         ),
-
         externalUrl: safeUrl(
-          item.externalUrl ||
-          item.link
+          item.externalUrl || item.link
         ),
-
         status: normalizeNewsStatus(
-          item.status ||
-          item.publicStatus
+          item.status || item.publicStatus
         ),
-
-        createdAt: String(
-          item.createdAt ||
-          ""
-        ),
-
-        updatedAt: String(
-          item.updatedAt ||
-          ""
-        )
+        createdAt: String(item.createdAt || ""),
+        updatedAt: String(item.updatedAt || "")
       };
     }
 
@@ -1278,10 +959,7 @@
           .slice(0, MAX_PHOTOS);
       }
 
-      if (
-        typeof value === "string" &&
-        value.trim()
-      ) {
+      if (typeof value === "string" && value.trim()) {
         return value
           .split(/\s*,\s*/)
           .map((item) => safeUrl(item))
@@ -1294,22 +972,13 @@
 
     function updateCounts() {
       $("pendingCount").textContent =
-        posts.filter(
-          (post) =>
-            post.status === "確認待ち"
-        ).length;
+        posts.filter((post) => post.status === "確認待ち").length;
 
       $("publicCount").textContent =
-        posts.filter(
-          (post) =>
-            post.status === "公開"
-        ).length;
+        posts.filter((post) => post.status === "公開").length;
 
       $("hiddenCount").textContent =
-        posts.filter(
-          (post) =>
-            post.status === "非公開"
-        ).length;
+        posts.filter((post) => post.status === "非公開").length;
     }
 
     function renderPosts() {
@@ -1317,192 +986,165 @@
         currentFilter === "すべて"
           ? posts
           : posts.filter(
-              (post) =>
-                post.status === currentFilter
+              (post) => post.status === currentFilter
             );
 
       if (!filtered.length) {
         postList.innerHTML =
           '<div class="empty-box">該当する投稿はありません。</div>';
-
         return;
       }
 
-      postList.innerHTML =
-        filtered
-          .map((post) => {
-            const photos =
-              post.images
-                .map((url, index) => `
-                  <a
-                    class="photo-box"
-                    href="${escapeAttribute(url)}"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <img
-                      src="${escapeAttribute(url)}"
-                      alt="投稿写真 ${index + 1}"
-                      loading="lazy"
-                    >
-                  </a>
-                `)
-                .join("");
+      postList.innerHTML = filtered
+        .map((post) => {
+          const photos = post.images
+            .map(
+              (url, index) => `
+          <a
+            class="photo-box"
+            href="${escapeAttribute(url)}"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src="${escapeAttribute(url)}"
+              alt="投稿写真 ${index + 1}"
+              loading="lazy"
+            >
+          </a>
+        `
+            )
+            .join("");
 
-            return `
-              <article
-                class="item-card"
-                data-post-id="${escapeAttribute(post.id)}"
+          return `
+          <article
+            class="item-card"
+            data-post-id="${escapeAttribute(post.id)}"
+          >
+            <div class="item-head">
+              <div>
+                <p class="item-id">
+                  投稿ID：${escapeHtml(post.id)}
+                </p>
+                <p class="item-date">
+                  ${escapeHtml(post.date)}
+                </p>
+              </div>
+
+              <span class="status-badge ${getStatusClass(post.status)}">
+                ${escapeHtml(post.status)}
+              </span>
+            </div>
+
+            <h3 class="item-title">
+              ${escapeHtml(post.nickname)}
+            </h3>
+
+            <p
+              class="stars"
+              aria-label="星${post.rating}つ"
+            >
+              ${"★".repeat(post.rating)}${"☆".repeat(5 - post.rating)}
+            </p>
+
+            ${
+              post.menuName
+                ? `<p class="menu-name">商品名：${escapeHtml(
+                    post.menuName
+                  )}</p>`
+                : ""
+            }
+
+            <p class="item-text">
+              ${escapeHtml(post.comment)}
+            </p>
+
+            ${
+              photos
+                ? `<div class="photo-row">${photos}</div>`
+                : ""
+            }
+
+            ${
+              post.approvedAt
+                ? `<p class="help">承認日時：${escapeHtml(
+                    post.approvedAt
+                  )}</p>`
+                : ""
+            }
+
+            <label
+              class="label"
+              for="notes-${escapeAttribute(post.id)}"
+            >
+              管理者備考
+            </label>
+
+            <textarea
+              class="notes-input"
+              id="notes-${escapeAttribute(post.id)}"
+              maxlength="500"
+              placeholder="確認内容や非公開理由など"
+            >${escapeHtml(post.notes)}</textarea>
+
+            <div class="action-row">
+              <button
+                class="action-button publish"
+                type="button"
+                data-post-action="公開"
               >
-                <div class="item-head">
-                  <div>
-                    <p class="item-id">
-                      投稿ID：${escapeHtml(post.id)}
-                    </p>
+                公開する
+              </button>
 
-                    <p class="item-date">
-                      ${escapeHtml(post.date)}
-                    </p>
-                  </div>
+              <button
+                class="action-button pending"
+                type="button"
+                data-post-action="確認待ち"
+              >
+                確認待ち
+              </button>
 
-                  <span
-                    class="status-badge ${getStatusClass(post.status)}"
-                  >
-                    ${escapeHtml(post.status)}
-                  </span>
-                </div>
+              <button
+                class="action-button hide"
+                type="button"
+                data-post-action="非公開"
+              >
+                非公開
+              </button>
 
-                <h3 class="item-title">
-                  ${escapeHtml(post.nickname)}
-                </h3>
-
-                <p
-                  class="stars"
-                  aria-label="星${post.rating}つ"
-                >
-                  ${"★".repeat(post.rating)}${"☆".repeat(5 - post.rating)}
-                </p>
-
-                ${
-                  post.menuName
-                    ? `
-                      <p class="menu-name">
-                        商品名：${escapeHtml(post.menuName)}
-                      </p>
-                    `
-                    : ""
-                }
-
-                <p class="item-text">
-                  ${escapeHtml(post.comment)}
-                </p>
-
-                ${
-                  photos
-                    ? `
-                      <div class="photo-row">
-                        ${photos}
-                      </div>
-                    `
-                    : ""
-                }
-
-                ${
-                  post.approvedAt
-                    ? `
-                      <p class="help">
-                        承認日時：${escapeHtml(post.approvedAt)}
-                      </p>
-                    `
-                    : ""
-                }
-
-                <label
-                  class="label"
-                  for="notes-${escapeAttribute(post.id)}"
-                >
-                  管理者備考
-                </label>
-
-                <textarea
-                  class="notes-input"
-                  id="notes-${escapeAttribute(post.id)}"
-                  maxlength="500"
-                  placeholder="確認内容や非公開理由など"
-                >${escapeHtml(post.notes)}</textarea>
-
-                <div class="action-row">
-                  <button
-                    class="action-button publish"
-                    type="button"
-                    data-post-action="公開"
-                  >
-                    公開する
-                  </button>
-
-                  <button
-                    class="action-button pending"
-                    type="button"
-                    data-post-action="確認待ち"
-                  >
-                    確認待ち
-                  </button>
-
-                  <button
-                    class="action-button hide"
-                    type="button"
-                    data-post-action="非公開"
-                  >
-                    非公開
-                  </button>
-
-                  <button
-                    class="action-button save"
-                    type="button"
-                    data-post-action="備考保存"
-                  >
-                    備考保存
-                  </button>
-                </div>
-              </article>
-            `;
-          })
-          .join("");
+              <button
+                class="action-button save"
+                type="button"
+                data-post-action="備考保存"
+              >
+                備考保存
+              </button>
+            </div>
+          </article>
+        `;
+        })
+        .join("");
     }
 
     async function handlePostAction(event) {
-      const button =
-        event.target.closest(
-          "[data-post-action]"
-        );
+      const button = event.target.closest(
+        "[data-post-action]"
+      );
 
-      if (!button) {
-        return;
-      }
+      if (!button) return;
 
-      const card =
-        button.closest(
-          "[data-post-id]"
-        );
+      const card = button.closest("[data-post-id]");
+      const post = posts.find(
+        (item) => item.id === card.dataset.postId
+      );
 
-      const post =
-        posts.find(
-          (item) =>
-            item.id === card.dataset.postId
-        );
+      if (!post) return;
 
-      if (!post) {
-        return;
-      }
+      const notes = card
+        .querySelector(".notes-input")
+        .value.trim();
 
-      const notes =
-        card
-          .querySelector(".notes-input")
-          .value
-          .trim();
-
-      const action =
-        button.dataset.postAction;
+      const action = button.dataset.postAction;
 
       const status =
         action === "備考保存"
@@ -1518,31 +1160,27 @@
       );
 
       try {
-        const result =
-          await apiRequest({
-            mode: "adminUpdate",
-            adminPassword,
-            postId: post.id,
-            status,
-            notes
-          });
+        const result = await apiRequest({
+          mode: "adminUpdate",
+          adminPassword,
+          postId: post.id,
+          status,
+          notes
+        });
 
-        post.status =
-          normalizePostStatus(
-            result.status || status
-          );
+        post.status = normalizePostStatus(
+          result.status || status
+        );
 
-        post.notes =
-          String(
-            result.notes || notes
-          );
+        post.notes = String(
+          result.notes || notes
+        );
 
-        post.approvedAt =
-          String(
-            result.approvedAt ||
+        post.approvedAt = String(
+          result.approvedAt ||
             post.approvedAt ||
             ""
-          );
+        );
 
         updateCounts();
         renderPosts();
@@ -1552,7 +1190,6 @@
           "投稿情報を更新しました。",
           "success"
         );
-
       } catch (error) {
         setCardDisabled(card, false);
 
@@ -1568,176 +1205,153 @@
       if (!newsItems.length) {
         newsList.innerHTML =
           '<div class="empty-box">お知らせはまだありません。</div>';
-
         return;
       }
 
-      newsList.innerHTML =
-        newsItems
-          .map((item) => {
-            const photos =
-              item.images
-                .map((url, index) => `
-                  <a
-                    class="photo-box"
-                    href="${escapeAttribute(url)}"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <img
-                      src="${escapeAttribute(url)}"
-                      alt="お知らせ画像 ${index + 1}"
-                      loading="lazy"
-                    >
-                  </a>
-                `)
-                .join("");
+      newsList.innerHTML = newsItems
+        .map((item) => {
+          const photos = item.images
+            .map(
+              (url, index) => `
+          <a
+            class="photo-box"
+            href="${escapeAttribute(url)}"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src="${escapeAttribute(url)}"
+              alt="お知らせ画像 ${index + 1}"
+              loading="lazy"
+            >
+          </a>
+        `
+            )
+            .join("");
 
-            return `
-              <article
-                class="item-card news-card"
-                data-news-id="${escapeAttribute(item.id)}"
-              >
-                <div class="item-head">
-                  <div>
-                    <p class="item-id">
-                      お知らせID：${escapeHtml(item.id)}
-                    </p>
-
-                    <p class="item-date">
-                      投稿日：${escapeHtml(item.date)}
-                    </p>
-                  </div>
-
-                  <span
-                    class="status-badge ${getStatusClass(item.status)}"
-                  >
-                    ${escapeHtml(item.status)}
-                  </span>
-                </div>
-
-                <h3 class="item-title">
-                  ${escapeHtml(item.title)}
-                </h3>
-
-                <p class="item-text">
-                  ${escapeHtml(item.body)}
+          return `
+          <article
+            class="item-card news-card"
+            data-news-id="${escapeAttribute(item.id)}"
+          >
+            <div class="item-head">
+              <div>
+                <p class="item-id">
+                  お知らせID：${escapeHtml(item.id)}
                 </p>
 
-                ${
-                  photos
-                    ? `
-                      <div class="photo-row">
-                        ${photos}
-                      </div>
-                    `
-                    : ""
-                }
+                <p class="item-date">
+                  投稿日：${escapeHtml(item.date)}
+                </p>
+              </div>
 
-                <div class="news-links">
-                  ${
-                    item.videoUrl
-                      ? `
-                        <a
-                          href="${escapeAttribute(item.videoUrl)}"
-                          target="_blank"
-                          rel="noopener"
-                        >
-                          YouTubeを確認
-                        </a>
-                      `
-                      : ""
-                  }
+              <span class="status-badge ${getStatusClass(item.status)}">
+                ${escapeHtml(item.status)}
+              </span>
+            </div>
 
-                  ${
-                    item.externalUrl
-                      ? `
-                        <a
-                          href="${escapeAttribute(item.externalUrl)}"
-                          target="_blank"
-                          rel="noopener"
-                        >
-                          外部リンクを確認
-                        </a>
-                      `
-                      : ""
-                  }
-                </div>
+            <h3 class="item-title">
+              ${escapeHtml(item.title)}
+            </h3>
 
-                <div class="action-row">
-                  <button
-                    class="action-button publish"
-                    type="button"
-                    data-news-action="公開"
-                  >
-                    公開
-                  </button>
+            <p class="item-text">
+              ${escapeHtml(item.body)}
+            </p>
 
-                  <button
-                    class="action-button pending"
-                    type="button"
-                    data-news-action="下書き"
-                  >
-                    下書き
-                  </button>
+            ${
+              photos
+                ? `<div class="photo-row">${photos}</div>`
+                : ""
+            }
 
-                  <button
-                    class="action-button hide"
-                    type="button"
-                    data-news-action="非公開"
-                  >
-                    非公開
-                  </button>
+            <div class="news-links">
+              ${
+                item.videoUrl
+                  ? `<a
+                      href="${escapeAttribute(item.videoUrl)}"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      YouTubeを確認
+                    </a>`
+                  : ""
+              }
 
-                  <button
-                    class="action-button save"
-                    type="button"
-                    data-news-action="編集"
-                  >
-                    編集
-                  </button>
+              ${
+                item.externalUrl
+                  ? `<a
+                      href="${escapeAttribute(item.externalUrl)}"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      外部リンクを確認
+                    </a>`
+                  : ""
+              }
+            </div>
 
-                  <button
-                    class="action-button hide"
-                    type="button"
-                    data-news-action="削除"
-                  >
-                    削除
-                  </button>
-                </div>
-              </article>
-            `;
-          })
-          .join("");
+            <div class="action-row">
+              <button
+                class="action-button publish"
+                type="button"
+                data-news-action="公開"
+              >
+                公開
+              </button>
+
+              <button
+                class="action-button pending"
+                type="button"
+                data-news-action="下書き"
+              >
+                下書き
+              </button>
+
+              <button
+                class="action-button hide"
+                type="button"
+                data-news-action="非公開"
+              >
+                非公開
+              </button>
+
+              <button
+                class="action-button save"
+                type="button"
+                data-news-action="編集"
+              >
+                編集
+              </button>
+
+              <button
+                class="action-button hide"
+                type="button"
+                data-news-action="削除"
+              >
+                削除
+              </button>
+            </div>
+          </article>
+        `;
+        })
+        .join("");
     }
 
     async function handleNewsAction(event) {
-      const button =
-        event.target.closest(
-          "[data-news-action]"
-        );
+      const button = event.target.closest(
+        "[data-news-action]"
+      );
 
-      if (!button) {
-        return;
-      }
+      if (!button) return;
 
-      const card =
-        button.closest(
-          "[data-news-id]"
-        );
+      const card = button.closest("[data-news-id]");
+      const item = newsItems.find(
+        (news) => news.id === card.dataset.newsId
+      );
 
-      const item =
-        newsItems.find(
-          (news) =>
-            news.id === card.dataset.newsId
-        );
+      if (!item) return;
 
-      if (!item) {
-        return;
-      }
-
-      const action =
-        button.dataset.newsAction;
+      const action = button.dataset.newsAction;
 
       if (action === "編集") {
         editNews(item);
@@ -1783,7 +1397,6 @@
           "お知らせを更新しました。",
           "success"
         );
-
       } catch (error) {
         setCardDisabled(card, false);
 
@@ -1832,7 +1445,6 @@
           "お知らせを削除しました。",
           "success"
         );
-
       } catch (error) {
         setCardDisabled(card, false);
 
@@ -1853,8 +1465,10 @@
       $("newsExternalUrl").value = item.externalUrl;
       $("newsStatus").value = item.status;
 
-      existingNewsImages =
-        item.images.slice(0, MAX_PHOTOS);
+      existingNewsImages = item.images.slice(
+        0,
+        MAX_PHOTOS
+      );
 
       newNewsFiles = [];
 
@@ -1872,14 +1486,9 @@
     async function handleNewsSave(event) {
       event.preventDefault();
 
-      const date =
-        $("newsDate").value;
-
-      const title =
-        $("newsTitle").value.trim();
-
-      const body =
-        $("newsBody").value.trim();
+      const date = $("newsDate").value;
+      const title = $("newsTitle").value.trim();
+      const body = $("newsBody").value.trim();
 
       if (!date || !title || !body) {
         showMessage(
@@ -1887,13 +1496,12 @@
           "投稿日・タイトル・本文を入力してください。",
           "error"
         );
-
         return;
       }
 
       if (
         existingNewsImages.length +
-        newNewsFiles.length >
+          newNewsFiles.length >
         MAX_PHOTOS
       ) {
         showMessage(
@@ -1901,7 +1509,6 @@
           "画像は最大5枚までです。",
           "error"
         );
-
         return;
       }
 
@@ -1922,10 +1529,7 @@
           index++
         ) {
           newsSaveButton.textContent =
-            "画像準備 " +
-            String(index + 1) +
-            " / " +
-            String(newNewsFiles.length);
+            `画像準備 ${index + 1} / ${newNewsFiles.length}`;
 
           convertedImages.push(
             await convertImageForUpload(
@@ -1956,7 +1560,6 @@
         });
 
         resetNewsForm();
-
         await loadNewsOnly();
 
         showMessage(
@@ -1964,47 +1567,41 @@
           "お知らせを保存しました。",
           "success"
         );
-
       } catch (error) {
         showMessage(
           adminStatus,
           getErrorMessage(error),
           "error"
         );
-
       } finally {
         newsSaveButton.disabled = false;
-
         newsSaveButton.textContent =
           "お知らせを保存";
       }
     }
 
     async function loadNewsOnly() {
-      const result =
-        await apiRequest({
-          mode: "adminNewsList",
-          adminPassword
-        });
+      const result = await apiRequest({
+        mode: "adminNewsList",
+        adminPassword
+      });
 
-      newsItems =
-        Array.isArray(result.news)
-          ? result.news.map(normalizeNews)
-          : [];
+      newsItems = Array.isArray(result.news)
+        ? result.news.map(normalizeNews)
+        : [];
 
       renderNews();
     }
 
     function handleNewsPhotoSelection(event) {
-      const files =
-        Array.from(
-          event.target.files || []
-        );
+      const files = Array.from(
+        event.target.files || []
+      );
 
       for (const file of files) {
         if (
           existingNewsImages.length +
-          newNewsFiles.length >=
+            newNewsFiles.length >=
           MAX_PHOTOS
         ) {
           break;
@@ -2017,14 +1614,12 @@
           continue;
         }
 
-        const duplicate =
-          newNewsFiles.some(
-            (selected) =>
-              selected.name === file.name &&
-              selected.size === file.size &&
-              selected.lastModified ===
-                file.lastModified
-          );
+        const duplicate = newNewsFiles.some(
+          (selected) =>
+            selected.name === file.name &&
+            selected.size === file.size &&
+            selected.lastModified === file.lastModified
+        );
 
         if (!duplicate) {
           newNewsFiles.push(file);
@@ -2038,81 +1633,49 @@
     function renderNewsPhotoPreview() {
       newsPhotoPreview.innerHTML = "";
 
-      existingNewsImages.forEach(
-        (url, index) => {
-          newsPhotoPreview.appendChild(
-            createPreviewBox(
-              url,
-              "existing",
-              index
-            )
-          );
-        }
-      );
+      existingNewsImages.forEach((url, index) => {
+        newsPhotoPreview.appendChild(
+          createPreviewBox(url, "existing", index)
+        );
+      });
 
-      newNewsFiles.forEach(
-        (file, index) => {
-          const objectUrl =
-            URL.createObjectURL(file);
+      newNewsFiles.forEach((file, index) => {
+        const objectUrl = URL.createObjectURL(file);
+        const box = createPreviewBox(
+          objectUrl,
+          "new",
+          index
+        );
 
-          const box =
-            createPreviewBox(
-              objectUrl,
-              "new",
-              index
-            );
+        const image = box.querySelector("img");
 
-          const image =
-            box.querySelector("img");
+        image.addEventListener(
+          "load",
+          () => URL.revokeObjectURL(objectUrl),
+          { once: true }
+        );
 
-          image.addEventListener(
-            "load",
-            () => URL.revokeObjectURL(objectUrl),
-            { once: true }
-          );
-
-          newsPhotoPreview.appendChild(box);
-        }
-      );
+        newsPhotoPreview.appendChild(box);
+      });
 
       newsPhotoCount.textContent =
-        String(
-          existingNewsImages.length +
-          newNewsFiles.length
-        ) +
-        " / 5枚";
+        `${existingNewsImages.length + newNewsFiles.length} / 5枚`;
     }
 
     function createPreviewBox(url, kind, index) {
-      const box =
-        document.createElement("div");
+      const box = document.createElement("div");
+      box.className = "photo-box";
 
-      box.className =
-        "photo-box";
-
-      const image =
-        document.createElement("img");
-
+      const image = document.createElement("img");
       image.src = url;
       image.alt = "選択した画像";
 
-      const button =
-        document.createElement("button");
-
-      button.className =
-        "remove-photo";
-
-      button.type =
-        "button";
-
-      button.textContent =
-        "×";
-
-      button.dataset.removeKind =
-        kind;
-
-      button.dataset.removeIndex =
-        String(index);
+      const button = document.createElement("button");
+      button.className = "remove-photo";
+      button.type = "button";
+      button.textContent = "×";
+      button.dataset.removeKind = kind;
+      button.dataset.removeIndex = String(index);
 
       box.append(image, button);
 
@@ -2120,19 +1683,15 @@
     }
 
     function handlePreviewRemove(event) {
-      const button =
-        event.target.closest(
-          "[data-remove-kind]"
-        );
+      const button = event.target.closest(
+        "[data-remove-kind]"
+      );
 
-      if (!button) {
-        return;
-      }
+      if (!button) return;
 
-      const index =
-        Number(
-          button.dataset.removeIndex
-        );
+      const index = Number(
+        button.dataset.removeIndex
+      );
 
       if (
         button.dataset.removeKind ===
@@ -2149,16 +1708,14 @@
     function resetNewsForm() {
       newsForm.reset();
 
-      $("newsId").value =
-        "";
+      $("newsId").value = "";
 
       existingNewsImages = [];
       newNewsFiles = [];
 
       setToday();
 
-      $("newsStatus").value =
-        "下書き";
+      $("newsStatus").value = "下書き";
 
       newsSaveButton.textContent =
         "お知らせを保存";
@@ -2167,265 +1724,167 @@
     }
 
     function convertImageForUpload(file) {
-      return new Promise(
-        (resolve, reject) => {
-          const objectUrl =
-            URL.createObjectURL(file);
+      return new Promise((resolve, reject) => {
+        const objectUrl = URL.createObjectURL(file);
+        const image = new Image();
 
-          const image =
-            new Image();
+        image.onload = () => {
+          let width =
+            image.naturalWidth || image.width;
 
-          image.onload = () => {
-            let width =
-              image.naturalWidth ||
-              image.width;
+          let height =
+            image.naturalHeight || image.height;
 
-            let height =
-              image.naturalHeight ||
-              image.height;
+          if (width > MAX_IMAGE_WIDTH) {
+            const ratio =
+              MAX_IMAGE_WIDTH / width;
 
-            if (
-              width >
-              MAX_IMAGE_WIDTH
-            ) {
-              const ratio =
-                MAX_IMAGE_WIDTH /
-                width;
+            width = MAX_IMAGE_WIDTH;
+            height = Math.round(height * ratio);
+          }
 
-              width =
-                MAX_IMAGE_WIDTH;
+          const canvas =
+            document.createElement("canvas");
 
-              height =
-                Math.round(
-                  height * ratio
-                );
-            }
+          canvas.width = width;
+          canvas.height = height;
 
-            const canvas =
-              document.createElement(
-                "canvas"
-              );
-
-            canvas.width =
-              width;
-
-            canvas.height =
-              height;
-
-            canvas
-              .getContext("2d")
-              .drawImage(
-                image,
-                0,
-                0,
-                width,
-                height
-              );
-
-            URL.revokeObjectURL(
-              objectUrl
+          canvas
+            .getContext("2d")
+            .drawImage(
+              image,
+              0,
+              0,
+              width,
+              height
             );
 
-            resolve({
-              name: replaceExtension(
-                file.name,
-                "jpg"
-              ),
-              mimeType: "image/jpeg",
-              data: canvas.toDataURL(
-                "image/jpeg",
-                JPEG_QUALITY
-              )
-            });
-          };
+          URL.revokeObjectURL(objectUrl);
 
-          image.onerror = () => {
-            URL.revokeObjectURL(
-              objectUrl
-            );
+          resolve({
+            name: replaceExtension(
+              file.name,
+              "jpg"
+            ),
+            mimeType: "image/jpeg",
+            data: canvas.toDataURL(
+              "image/jpeg",
+              JPEG_QUALITY
+            )
+          });
+        };
 
-            reject(
-              new Error(
-                "画像を読み込めませんでした。"
-              )
-            );
-          };
+        image.onerror = () => {
+          URL.revokeObjectURL(objectUrl);
+          reject(
+            new Error(
+              "画像を読み込めませんでした。"
+            )
+          );
+        };
 
-          image.src =
-            objectUrl;
-        }
-      );
+        image.src = objectUrl;
+      });
     }
 
-    function replaceExtension(
-      filename,
-      extension
-    ) {
-      const cleanName =
-        String(filename || "photo")
-          .replace(
-            /\.[^.]+$/,
-            ""
-          )
-          .replace(
-            /[^a-zA-Z0-9ぁ-んァ-ヶ一-龠_-]/g,
-            "-"
-          )
-          .slice(0, 60);
+    function replaceExtension(filename, extension) {
+      const cleanName = String(
+        filename || "photo"
+      )
+        .replace(/\.[^.]+$/, "")
+        .replace(
+          /[^a-zA-Z0-9ぁ-んァ-ヶ一-龠_-]/g,
+          "-"
+        )
+        .slice(0, 60);
 
-      return (
-        cleanName ||
-        "photo"
-      ) +
-      "." +
-      extension;
+      return `${cleanName || "photo"}.${extension}`;
     }
 
     function normalizePostStatus(value) {
-      const status =
-        String(value || "");
+      const status = String(value || "");
 
-      if (status === "公開") {
-        return "公開";
-      }
-
-      if (status === "非公開") {
-        return "非公開";
-      }
+      if (status === "公開") return "公開";
+      if (status === "非公開") return "非公開";
 
       return "確認待ち";
     }
 
     function normalizeNewsStatus(value) {
-      const status =
-        String(value || "");
+      const status = String(value || "");
 
-      if (status === "公開") {
-        return "公開";
-      }
-
-      if (status === "非公開") {
-        return "非公開";
-      }
+      if (status === "公開") return "公開";
+      if (status === "非公開") return "非公開";
 
       return "下書き";
     }
 
     function getStatusClass(status) {
-      if (status === "公開") {
-        return "public";
-      }
-
-      if (status === "非公開") {
-        return "hidden";
-      }
-
-      if (status === "下書き") {
-        return "draft";
-      }
+      if (status === "公開") return "public";
+      if (status === "非公開") return "hidden";
+      if (status === "下書き") return "draft";
 
       return "pending";
     }
 
     function setCardDisabled(card, disabled) {
       card
-        .querySelectorAll(
-          "button,textarea"
-        )
-        .forEach(
-          (element) => {
-            element.disabled =
-              disabled;
-          }
-        );
+        .querySelectorAll("button, textarea")
+        .forEach((element) => {
+          element.disabled = disabled;
+        });
     }
 
     function setLoading(isLoading) {
-      loginButton.disabled =
-        isLoading;
+      loginButton.disabled = isLoading;
+      refreshButton.disabled = isLoading;
 
-      refreshButton.disabled =
-        isLoading;
-
-      loginButton.textContent =
-        isLoading
-          ? "読み込み中…"
-          : "管理者画面を開く";
+      loginButton.textContent = isLoading
+        ? "読み込み中…"
+        : "管理者画面を開く";
     }
 
     function setToday() {
-      const now =
-        new Date();
+      const now = new Date();
 
-      $("newsDate").value =
-        [
-          now.getFullYear(),
-          String(
-            now.getMonth() + 1
-          ).padStart(2, "0"),
-          String(
-            now.getDate()
-          ).padStart(2, "0")
-        ].join("-");
+      $("newsDate").value = [
+        now.getFullYear(),
+        String(now.getMonth() + 1).padStart(2, "0"),
+        String(now.getDate()).padStart(2, "0")
+      ].join("-");
     }
 
     function toDateInputValue(value) {
-      const text =
-        String(value || "").trim();
+      const text = String(value || "").trim();
 
-      if (
-        /^\d{4}-\d{2}-\d{2}$/.test(
-          text
-        )
-      ) {
+      if (/^\d{4}-\d{2}-\d{2}$/.test(text)) {
         return text;
       }
 
-      const date =
-        new Date(text);
+      const date = new Date(text);
 
-      if (
-        Number.isNaN(
-          date.getTime()
-        )
-      ) {
+      if (Number.isNaN(date.getTime())) {
         return "";
       }
 
       return [
         date.getFullYear(),
-        String(
-          date.getMonth() + 1
-        ).padStart(2, "0"),
-        String(
-          date.getDate()
-        ).padStart(2, "0")
+        String(date.getMonth() + 1).padStart(2, "0"),
+        String(date.getDate()).padStart(2, "0")
       ].join("-");
     }
 
     function logout() {
-      sessionStorage.removeItem(
-        PASSWORD_KEY
-      );
+      sessionStorage.removeItem(PASSWORD_KEY);
 
-      adminPassword =
-        "";
+      adminPassword = "";
+      posts = [];
+      newsItems = [];
 
-      posts =
-        [];
+      passwordInput.value = "";
 
-      newsItems =
-        [];
-
-      passwordInput.value =
-        "";
-
-      adminPanel.classList.remove(
-        "show"
-      );
-
-      loginCard.style.display =
-        "block";
+      adminPanel.classList.remove("show");
+      loginCard.style.display = "block";
 
       clearMessage(adminStatus);
       clearMessage(loginStatus);
@@ -2436,39 +1895,25 @@
       });
     }
 
-    function showMessage(
-      element,
-      message,
-      type
-    ) {
-      element.textContent =
-        message;
-
+    function showMessage(element, message, type) {
+      element.textContent = message;
       element.className =
-        "status-message show " +
-        type;
+        `status-message show ${type}`;
     }
 
     function clearMessage(element) {
-      element.textContent =
-        "";
-
-      element.className =
-        "status-message";
+      element.textContent = "";
+      element.className = "status-message";
     }
 
     function getErrorMessage(error) {
-      return (
-        error &&
-        error.message
-      )
+      return error && error.message
         ? error.message
         : "処理中にエラーが発生しました。";
     }
 
     function safeUrl(value) {
-      const url =
-        String(value || "").trim();
+      const url = String(value || "").trim();
 
       return /^https?:\/\//i.test(url)
         ? url
@@ -2476,17 +1921,16 @@
     }
 
     function escapeHtml(value) {
-      return String(
-        value ?? ""
-      ).replace(
+      return String(value ?? "").replace(
         /[&<>'"]/g,
-        (char) => ({
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          "'": "&#39;",
-          '"': "&quot;"
-        }[char])
+        (char) =>
+          ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            "'": "&#39;",
+            '"': "&quot;"
+          }[char])
       );
     }
 
